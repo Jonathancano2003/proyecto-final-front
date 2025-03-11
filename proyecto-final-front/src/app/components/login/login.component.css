@@ -1,0 +1,71 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff; /* Fondo blanco */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  /* Contenedor del login */
+  .login-container {
+    width: 350px;
+    padding: 30px;
+    background: #d32f2f; /* Rojo */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    color: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* Efecto al pasar el mouse */
+  .login-container:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Títulos */
+  h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+  
+  /* Campos de entrada */
+  input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  /* Efectos en los inputs */
+  input:focus {
+    outline: none;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+  }
+  
+  /* Botón */
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #ffffff; /* Blanco */
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #d32f2f; /* Rojo */
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+  
+  /* Efecto hover en botón */
+  button:hover {
+    background-color: #b71c1c; /* Rojo más oscuro */
+    color: #ffffff;
+  }
+  
