@@ -1,71 +1,134 @@
 /* Estilos generales */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #ffffff; /* Fondo blanco */
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-  }
-  
-  /* Contenedor del login */
-  .login-container {
-    width: 350px;
-    padding: 30px;
-    background: #d32f2f; /* Rojo */
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+/* Contenedor principal para centrar el formulario */
+.d-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+
+/* Contenedor del formulario de login */
+.login-container {
+    width: 400px;
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     text-align: center;
-    color: #fff;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  /* Efecto al pasar el mouse */
-  .login-container:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-  }
-  
-  /* Títulos */
-  h2 {
+    color: #333;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Efecto al pasar el mouse sobre el contenedor */
+.login-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Títulos */
+h2 {
+    font-size: 36px;
+    font-weight: 600;
+    color: #e53935;
+    letter-spacing: 1px;
     margin-bottom: 20px;
-    font-size: 24px;
-  }
-  
-  /* Campos de entrada */
-  input {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Estilo de los campos de entrada */
+input {
     width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: none;
-    border-radius: 5px;
+    padding: 12px;
+    margin: 12px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
     font-size: 16px;
-  }
-  
-  /* Efectos en los inputs */
-  input:focus {
+    color: #333;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto de enfoque en los campos */
+input:focus {
     outline: none;
-    box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
-  }
-  
-  /* Botón */
-  button {
+    border-color: #e53935;
+    box-shadow: 0 0 10px rgba(229, 57, 53, 0.3);
+}
+
+/* Botón */
+button {
     width: 100%;
-    padding: 10px;
-    background-color: #ffffff; /* Blanco */
+    padding: 15px; /* Aumento un poco el padding para hacerlo más grande */
+    background-color: #e53935;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     font-size: 18px;
-    font-weight: bold;
-    color: #d32f2f; /* Rojo */
+    font-weight: 600;
+    color: white;
     cursor: pointer;
-    transition: background 0.3s ease, color 0.3s ease;
-  }
-  
-  /* Efecto hover en botón */
-  button:hover {
-    background-color: #b71c1c; /* Rojo más oscuro */
-    color: #ffffff;
-  }
-  
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    margin-top: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Roboto', sans-serif, 'Arial';
+    box-sizing: border-box; 
+}
+
+/* Efecto hover en el botón */
+button:hover {
+    background-color: #c62828;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Efecto al hacer clic en el botón */
+button:active {
+    transform: scale(0.98);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Mensajes de error o éxito */
+.message {
+    margin-top: 15px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #FFEB3B;
+    display: none;
+}
+
+.message.success {
+    color: #4CAF50;
+}
+
+.message.error {
+    color: #F44336;
+}
+
+/* Agregar una animación de aparición del formulario */
+.login-container {
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
