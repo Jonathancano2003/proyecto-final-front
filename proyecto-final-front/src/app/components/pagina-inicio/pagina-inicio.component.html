@@ -1,0 +1,26 @@
+<div class="pagina-inicio-container">
+    <div class="filtro-container">
+      <div class="dropdown">
+        <button class="dropdown-btn">Marca ▼</button>
+        <div class="dropdown-content">
+          <label *ngFor="let brand of brands">
+            <input type="checkbox" (change)="toggleSelection(brand, 'brand')"> {{ brand }}
+          </label>
+        </div>
+      </div>
+  
+      <div class="dropdown">
+        <button class="dropdown-btn">Modelo ▼</button>
+        <div class="dropdown-content">
+          <label *ngFor="let model of models">
+            <input type="checkbox" (change)="toggleSelection(model, 'model')"> {{ model }}
+          </label>
+        </div>
+      </div>
+  
+      <input type="text" [(ngModel)]="searchQuery" placeholder="🔍 Buscar coches">
+  
+      <button (click)="searchCars()" class="search-btn">Ver coches disponibles</button>
+    </div>
+  </div>
+  
