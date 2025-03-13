@@ -1,7 +1,11 @@
 /* Estilos generales */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
+    background-image: url('/proyecto-final-front/public/images/bmw-on-street-in-rain-gif-desktop-wallpaper-preview.gif');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
     color: #333;
     display: flex;
     justify-content: center;
@@ -24,9 +28,9 @@ body {
 .login-container {
     width: 400px;
     padding: 40px;
-    background-color: #ffffff;
+    background: rgba(255, 255, 255, 0.85); /* Fondo semi-transparente */
     border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     text-align: center;
     color: #333;
     transition: all 0.3s ease-in-out;
@@ -35,7 +39,7 @@ body {
 /* Efecto al pasar el mouse sobre el contenedor */
 .login-container:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
 }
 
 /* Títulos */
@@ -43,7 +47,6 @@ h2 {
     font-size: 36px;
     font-weight: 600;
     color: #e53935;
-    letter-spacing: 1px;
     margin-bottom: 20px;
     font-family: 'Poppins', sans-serif;
 }
@@ -71,7 +74,7 @@ input:focus {
 /* Botón */
 button {
     width: 100%;
-    padding: 15px; /* Aumento un poco el padding para hacerlo más grande */
+    padding: 15px;
     background-color: #e53935;
     border: none;
     border-radius: 8px;
@@ -82,9 +85,7 @@ button {
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
     margin-top: 20px;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    font-family: 'Roboto', sans-serif, 'Arial';
-    box-sizing: border-box; 
+    font-family: 'Roboto', sans-serif;
 }
 
 /* Efecto hover en el botón */
@@ -117,7 +118,7 @@ button:active {
     color: #F44336;
 }
 
-/* Agregar una animación de aparición del formulario */
+/* Animación de aparición del formulario */
 .login-container {
     animation: fadeIn 0.8s ease-out;
 }
