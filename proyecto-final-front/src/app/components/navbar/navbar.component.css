@@ -40,22 +40,48 @@
     gap: 20px;
 }
 
+/* Button styles for navbar links */
 .nav-link {
+    display: inline-block;
+    padding: 0.9rem 1.8rem;
     font-size: 16px;
+    font-weight: 700;
     color: white;
+    border: 3px solid rgb(252, 70, 100);
+    cursor: pointer;
+    position: relative;
+    background-color: transparent;
     text-decoration: none;
-    padding: 10px 20px;
+    overflow: hidden;
+    z-index: 1;
+    font-family: inherit;
     border-radius: 8px;
     transition: background 0.3s ease, transform 0.2s ease;
-    background: #e53935;
-    font-weight: bold;
-    box-shadow: 0 4px 8px rgba(229, 57, 53, 0.4);
+}
+
+/* Hover effect */
+.nav-link::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(252, 70, 100);
+    transform: translateX(-100%);
+    transition: all 0.3s;
+    z-index: -1;
 }
 
 .nav-link:hover {
     background: #c62828;
     transform: scale(1.1);
     box-shadow: 0 6px 12px rgba(229, 57, 53, 0.5);
+}
+
+/* Hover effect for button */
+.nav-link:hover::before {
+    transform: translateX(0);
 }
 
 .main-content {
