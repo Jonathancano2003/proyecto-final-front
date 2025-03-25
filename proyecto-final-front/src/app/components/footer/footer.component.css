@@ -1,47 +1,54 @@
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 60px;
-    background: rgba(0, 0, 0, 0.9);
-    backdrop-filter: blur(8px);
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 20px;
-    z-index: 1000;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    flex-direction: column;
 }
 
-.nav-container {
+
+.main-content {
+    flex: 1;
+}
+
+
+.footer {
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(8px);
+    padding: 20px 0;
+    position: relative;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3);
+    color: white;
+    margin-top: auto;
+}
+
+.footer-container {
     width: 90%;
     max-width: 1200px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: 0 auto;
 }
 
-.logo {
+.footer-logo {
     font-size: 24px;
     font-weight: bold;
-    color: white;
-    text-decoration: none;
     text-transform: uppercase;
     transition: color 0.3s ease;
 }
 
-.logo:hover {
+.footer-logo:hover {
     color: #e53935;
 }
 
-.nav-links {
+.footer-links {
     display: flex;
     gap: 20px;
 }
 
-/* Button styles for navbar links */
-.nav-link {
+.footer-btn {
     display: inline-block;
     padding: 0.9rem 1.8rem;
     font-size: 16px;
@@ -54,13 +61,11 @@
     text-decoration: none;
     overflow: hidden;
     z-index: 1;
-    font-family: inherit;
     border-radius: 8px;
     transition: background 0.3s ease, transform 0.2s ease;
 }
 
-/* Hover effect */
-.nav-link::before {
+.footer-btn::before {
     content: "";
     position: absolute;
     left: 0;
@@ -73,17 +78,12 @@
     z-index: -1;
 }
 
-.nav-link:hover {
+.footer-btn:hover {
     background: #c62828;
     transform: scale(1.1);
     box-shadow: 0 6px 12px rgba(229, 57, 53, 0.5);
 }
 
-/* Hover effect for button */
-.nav-link:hover::before {
+.footer-btn:hover::before {
     transform: translateX(0);
-}
-
-.main-content {
-    margin-top: 80px;
 }
