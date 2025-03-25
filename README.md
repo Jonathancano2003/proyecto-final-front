@@ -1,6 +1,4 @@
 
-# ![NovaAuto Logo](src/assets/images/NovaAutoLogo.png)
-
 # 🚗 **Proyecto Final Front - Plataforma de Venta de Coches**
 
 **Proyecto Final Front** es una aplicación web desarrollada con **Angular** que permite a los usuarios explorar y comprar coches de manera eficiente y amigable. Este es el frontend de nuestra plataforma de ventas, diseñada para ofrecer una experiencia de usuario fluida y dinámica.
