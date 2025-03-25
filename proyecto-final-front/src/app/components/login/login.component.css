@@ -1,6 +1,9 @@
+/* Importar fuentes */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto:wght@400;700&display=swap');
+
 /* Estilos generales */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Poppins', sans-serif;
     background-image: url('/proyecto-final-front/public/images/bmw-on-street-in-rain-gif-desktop-wallpaper-preview.gif');
     background-repeat: no-repeat;
     background-position: center center;
@@ -12,26 +15,24 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    padding: 0; /* Asegura que no haya espacio alrededor del body */
+    padding: 0;
     overflow: hidden;
-    position: relative;
-    filter: none; /* Eliminamos cualquier filtro de blur */
 }
 
-/* Contenedor principal para centrar el formulario */
+/* Contenedor principal */
 .d-flex {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Asegura que ocupe toda la altura de la pantalla */
-    width: 100%;  /* Asegura que ocupe toda la anchura de la pantalla */
+    height: 100vh;
+    width: 100%;
 }
 
-/* Contenedor del formulario de login */
+/* Contenedor del formulario */
 .login-container {
     width: 400px;
     padding: 40px;
-    background: rgba(255, 255, 255, 1); /* Fondo completamente opaco */
+    background: rgba(255, 255, 255, 0.9); /* Ligera transparencia */
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     text-align: center;
@@ -40,14 +41,14 @@ body {
 
 /* Títulos */
 h2 {
-    font-size: 36px;
+    font-size: 32px;
     font-weight: 600;
     color: #e53935;
     margin-bottom: 20px;
     font-family: 'Poppins', sans-serif;
 }
 
-/* Estilo de los campos de entrada */
+/* Campos de entrada */
 input {
     width: 100%;
     padding: 12px;
@@ -55,6 +56,7 @@ input {
     border: 1px solid #ddd;
     border-radius: 8px;
     font-size: 16px;
+    font-family: 'Roboto', sans-serif;
     color: #333;
     background-color: #f9f9f9;
 }
@@ -67,20 +69,24 @@ button {
     border: none;
     border-radius: 8px;
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 700;
     color: white;
     cursor: pointer;
     margin-top: 20px;
     text-transform: uppercase;
     font-family: 'Roboto', sans-serif;
+    transition: background 0.3s ease;
 }
 
-/* Mensajes de error o éxito */
+button:hover {
+    background-color: #c62828;
+}
+
+/* Mensajes */
 .message {
     margin-top: 15px;
     font-size: 14px;
     font-weight: bold;
-    color: #FFEB3B;
     display: none;
 }
 
@@ -91,4 +97,3 @@ button {
 .message.error {
     color: #F44336;
 }
-
