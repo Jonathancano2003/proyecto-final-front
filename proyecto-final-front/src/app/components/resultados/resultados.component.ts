@@ -37,9 +37,7 @@ export class ResultadosComponent {
     
   ];
 
-  onCarDetails(car: any) {
-    console.log("Detalles del coche seleccionado:", car);
-  }
+ 
 
   resetFilters() {
     this.filters = {

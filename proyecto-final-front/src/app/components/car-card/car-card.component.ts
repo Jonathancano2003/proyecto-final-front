@@ -5,8 +5,8 @@ import { CommonModule } from '@angular/common'; // Importa CommonModule
   selector: 'app-car-card',
   templateUrl: './car-card.component.html',
   styleUrls: ['./car-card.component.css'],
-  standalone: true, // Asegúrate de que el componente sea standalone
-  imports: [CommonModule] // Importa CommonModule para usar pipes como number y currency
+  standalone: true, 
+  imports: [CommonModule]
 })
 export class CarCardComponent {
   @Input() carImage: string = 'https://via.placeholder.com/120x80';
@@ -15,9 +15,5 @@ export class CarCardComponent {
   @Input() power: number = 120;
   @Input() price: number = 23000;
 
-  @Output() detailsClicked = new EventEmitter<void>(); // Para emitir eventos al componente padre
-
-  onDetailsClick() {
-    this.detailsClicked.emit();
-  }
+ 
 }

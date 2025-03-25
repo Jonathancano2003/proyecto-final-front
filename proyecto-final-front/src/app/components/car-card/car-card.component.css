@@ -1,3 +1,7 @@
+  .body{
+    border: 1px solid black;
+    
+  }
 .car-card {
     display: flex;
     align-items: center;
