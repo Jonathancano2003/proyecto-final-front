@@ -1,26 +1,42 @@
 <div class="pagina-inicio-container">
-    <div class="filtro-container">
-      <div class="dropdown">
-        <button class="dropdown-btn">Marca ▼</button>
-        <div class="dropdown-content">
-          <label *ngFor="let brand of brands">
-            <input type="checkbox" (change)="toggleSelection(brand, 'brand')"> {{ brand }}
-          </label>
-        </div>
+  <div class="banner">
+    <img src="assets/images/banner.jpg" alt="Banner">
+  </div>
+
+  <div class="filtro-container">
+    <div class="dropdown">
+      <button class="dropdown-btn">Marca ▼</button>
+      <div class="dropdown-content">
+        <label *ngFor="let brand of brands">
+          <input type="checkbox" (change)="toggleSelection(brand, 'brand')"> {{ brand }}
+        </label>
       </div>
-  
-      <div class="dropdown">
-        <button class="dropdown-btn">Modelo ▼</button>
-        <div class="dropdown-content">
-          <label *ngFor="let model of models">
-            <input type="checkbox" (change)="toggleSelection(model, 'model')"> {{ model }}
-          </label>
-        </div>
+    </div>
+
+    <div class="wave-group">
+      <input required type="text" class="input" [(ngModel)]="searchQuery">
+      <span class="bar"></span>
+      <label class="label">
+        <span class="label-char" style="--index: 0">B</span>
+        <span class="label-char" style="--index: 1">u</span>
+        <span class="label-char" style="--index: 2">s</span>
+        <span class="label-char" style="--index: 3">c</span>
+        <span class="label-char" style="--index: 4">a</span>
+        <span class="label-char" style="--index: 5">r</span>
+      </label>
+    </div>
+
+    <div class="dropdown">
+      <button class="dropdown-btn">Modelo ▼</button>
+      <div class="dropdown-content">
+        <label *ngFor="let model of models">
+          <input type="checkbox" (change)="toggleSelection(model, 'model')"> {{ model }}
+        </label>
       </div>
-  
-      <input type="text" [(ngModel)]="searchQuery" placeholder="🔍 Buscar coches">
-  
-      <button (click)="searchCars()" class="search-btn">Ver coches disponibles</button>
     </div>
   </div>
-  
+
+  <div class="search-container">
+    <button (click)="searchCars()" class="search-btn">Ver coches disponibles</button>
+  </div>
+</div>

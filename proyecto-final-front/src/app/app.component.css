@@ -1,0 +1,6 @@
+.main-content {
+    margin-top: 65px; /* Ajusta el espacio para que el contenido no quede debajo del navbar */
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}

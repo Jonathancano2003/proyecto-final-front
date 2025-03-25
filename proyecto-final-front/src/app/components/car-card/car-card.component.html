@@ -1,0 +1,12 @@
+<div class="car-image">
+    <img [src]="carImage || 'https://via.placeholder.com/120x80'" alt="Car Image" />
+  </div>
+  <div class="car-details">
+    <h3>{{ vehicleName || 'Vehículo Desconocido' }}</h3>
+    <p>Kilómetros {{ (kilometers | number:'1.0-0') || '0' }}</p>
+    <p>Potencia {{ power || 'N/A' }}cv</p>
+  </div>
+  <div class="car-price">
+    <p>PVP: <span>{{ price | currency:'EUR':'symbol':'1.0-0' }}</span></p>
+    <button class="details-button" (click)="onDetailsClick()">→</button>
+  </div>

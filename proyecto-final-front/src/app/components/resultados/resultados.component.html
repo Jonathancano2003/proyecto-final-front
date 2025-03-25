@@ -1,0 +1,44 @@
+<div class="resultados-container">
+  <!-- Panel lateral de filtros -->
+  <aside class="filter-panel">
+    <div class="filter-box">
+      <div class="search-bar">
+        <span>🔍 <strong>Search</strong></span>
+      </div>
+
+      <div class="filter-options">
+        <label>
+          <input type="checkbox" [(ngModel)]="filters.allCategories"> All categories
+        </label>
+        <label>
+          <input type="checkbox" [(ngModel)]="filters.nuevos"> Nuevos
+        </label>
+        <label>
+          <input type="checkbox" [(ngModel)]="filters.ceroKm"> Cero Km
+        </label>
+        <label>
+          <input type="checkbox" [(ngModel)]="filters.novedades"> Novedades
+        </label>
+        <label>
+          <input type="checkbox" [(ngModel)]="filters.ofertas"> Ofertas
+        </label>
+      </div>
+
+      <button class="show-results-btn">Show {{ cars.length }} results</button>
+      <button class="reset-btn" (click)="resetFilters()">Reset</button>
+    </div>
+  </aside>
+
+  <!-- Lista de coches -->
+  <section class="cars-list">
+    <app-car-card
+      *ngFor="let car of cars"
+      [carImage]="car.carImage"
+      [vehicleName]="car.vehicleName"
+      [kilometers]="car.kilometers"
+      [power]="car.power"
+      [price]="car.price"
+      (detailsClicked)="onCarDetails(car)">
+    </app-car-card>
+  </section>
+</div>

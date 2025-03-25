@@ -1,0 +1,60 @@
+.resultados-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+  }
+  
+  /* Estilos del panel lateral */
+  .filter-panel {
+    width: 250px;
+  }
+  
+  .filter-box {
+    background: #ffcdd2;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .search-bar {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .filter-options label {
+    display: block;
+    margin: 10px 0;
+  }
+  
+  .show-results-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .reset-btn {
+    width: 100%;
+    padding: 5px;
+    background-color: transparent;
+    border: none;
+    color: black;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 5px;
+  }
+  
+  /* Estilos de la lista de coches */
+  .cars-list {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
