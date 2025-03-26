@@ -1,16 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';  // 🔹 Importar FormsModule
+import { FormsModule } from '@angular/forms';
 import { CarCardComponent } from '../../components/car-card/car-card.component';
+import { VehiculosService } from '../../services/vehiculos.service';
 
 @Component({
   selector: 'app-resultados',
   standalone: true,
   templateUrl: './resultados.component.html',
   styleUrls: ['./resultados.component.css'],
-  imports: [CommonModule, FormsModule, CarCardComponent] // 🔹 Agregar FormsModule y CarCardComponent
+  imports: [CommonModule, FormsModule, CarCardComponent]
 })
-export class ResultadosComponent {
+export class ResultadosComponent implements OnInit {
   filters = {
     allCategories: false,
     nuevos: false,
@@ -19,53 +20,19 @@ export class ResultadosComponent {
     ofertas: false
   };
 
-  cars = [
-    {
-      carImage: 'assets/images/bmw-serie3.jpg',
-      vehicleName: 'Seat León',
-      kilometers: 123000,
-      power: 120,
-      price: 23000
-    },
-    {
-      carImage: 'assets/images/bmw-serie3.jpg',
-      vehicleName: 'BMW Serie 3',
-      kilometers: 85000,
-      power: 150,
-      price: 28000
-    }, {
-      carImage: 'assets/images/bmw-serie3.jpg',
-      vehicleName: 'Seat León',
-      kilometers: 123000,
-      power: 120,
-      price: 23000
-    }, {
-      carImage: 'assets/images/bmw-serie3.jpg',
-      vehicleName: 'Seat León',
-      kilometers: 123000,
-      power: 120,
-      price: 23000
-    }, {
-      carImage: 'assets/images/bmw-serie3.jpg',
-      vehicleName: 'Seat León',
-      kilometers: 123000,
-      power: 120,
-      price: 23000
-    }, {
-      carImage: 'assets/images/bmw-serie3.jpg',
-      vehicleName: 'Seat León',
-      kilometers: 123000,
-      power: 120,
-      price: 23000
-    },
-    
-  ];
+  cars: any[] = [];
   selectedCar: any = null;
+
+  constructor(private vehiculosService: VehiculosService) {}
+
+  ngOnInit(): void {
+    this.cars = this.vehiculosService.getVehiculos();
+  }
 
   selectCar(car: any) {
     this.selectedCar = car;
   }
-  
+
   resetFilters() {
     this.filters = {
       allCategories: false,
@@ -74,6 +41,5 @@ export class ResultadosComponent {
       novedades: false,
       ofertas: false
     };
-    
   }
 }
