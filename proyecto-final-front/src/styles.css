@@ -9,7 +9,7 @@ body.login-page .background, body.register-page .background {
   background-size: cover;
   background-position: center;
   filter: blur(8px);
-  z-index: -1; /* Mantiene el fondo detrás del contenido */
+  z-index: -1; 
 }
 html, body {
   height: 100%;
