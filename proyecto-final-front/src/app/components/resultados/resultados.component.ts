@@ -33,6 +33,30 @@ export class ResultadosComponent {
       kilometers: 85000,
       power: 150,
       price: 28000
+    }, {
+      carImage: 'assets/images/bmw-serie3.jpg',
+      vehicleName: 'Seat León',
+      kilometers: 123000,
+      power: 120,
+      price: 23000
+    }, {
+      carImage: 'assets/images/bmw-serie3.jpg',
+      vehicleName: 'Seat León',
+      kilometers: 123000,
+      power: 120,
+      price: 23000
+    }, {
+      carImage: 'assets/images/bmw-serie3.jpg',
+      vehicleName: 'Seat León',
+      kilometers: 123000,
+      power: 120,
+      price: 23000
+    }, {
+      carImage: 'assets/images/bmw-serie3.jpg',
+      vehicleName: 'Seat León',
+      kilometers: 123000,
+      power: 120,
+      price: 23000
     },
     
   ];
