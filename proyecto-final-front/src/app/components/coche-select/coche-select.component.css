@@ -1,0 +1,46 @@
+.car-detail-container {
+    max-width: 900px;
+    margin: 30px auto;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .car-image {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+  
+  .car-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  .car-info {
+    margin-top: 20px;
+    text-align: left;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .car-info h2 {
+    color: #2c3e50;
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  
+  .car-info p {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+    color: #7f8c8d;
+  }
+  
+  .car-info strong {
+    color: #34495e;
+  }
+  

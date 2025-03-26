@@ -60,9 +60,12 @@ export class ResultadosComponent {
     },
     
   ];
+  selectedCar: any = null;
 
- 
-
+  selectCar(car: any) {
+    this.selectedCar = car;
+  }
+  
   resetFilters() {
     this.filters = {
       allCategories: false,
@@ -71,5 +74,6 @@ export class ResultadosComponent {
       novedades: false,
       ofertas: false
     };
+    
   }
 }
