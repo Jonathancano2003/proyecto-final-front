@@ -30,3 +30,7 @@ body {
   flex-direction: column;
   margin-top: 60px; /* Espacio para el navbar fijo */
 }
+/* Asegura que el main crezca y empuje al footer si hay poco contenido */
+.main-content {
+  flex: 1;
+}

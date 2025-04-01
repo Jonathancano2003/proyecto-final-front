@@ -1,0 +1,15 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* Esto permite al host ocupar el espacio disponible */
+}
+
+.usuario-container {
+  flex: 1; /* Esto es CLAVE para empujar el footer abajo */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  width: 100%;
+}
