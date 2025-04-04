@@ -4,7 +4,38 @@
   min-height: calc(100vh - 60px); /* 60px es la altura de tu navbar fijo */
   width: 100%;
 }
+header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
 
+.main-title {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #7f8c8d;
+  margin-bottom: 1.5rem;
+}
+
+.panel-title {
+  font-size: 2rem;
+  color: #34495e;
+  border-bottom: 3px solid #3498db;
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+/* Diseño de la cuadrícula */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 0 1rem;
+}
 .pagina-inicio-container {
   display: flex;
   flex-direction: column;
@@ -15,6 +46,7 @@
   box-sizing: border-box;
   padding-bottom: 40px; /* espacio por si el footer tiene sombra */
 }
+
 /* Contenedor del banner */
 .banner {
   width: 100vw;
@@ -180,4 +212,60 @@ input[type="text"] {
 .wave-group .input:focus ~ .bar:before,
 .wave-group .input:focus ~ .bar:after {
   width: 50%;
+}
+/* Eliminar el margen y padding por defecto del body y html */
+html, body {
+  margin: 0; /* Elimina el margen por defecto */
+  padding: 0; /* Elimina el padding por defecto */
+  width: 100%; /* Asegura que ocupen el 100% del ancho */
+  height: 100%; /* Asegura que ocupen el 100% de la altura */
+}
+
+/* Contenedor del banner de promoción */
+.promo-banner {
+  width: 100vw; /* Hace que el banner ocupe todo el ancho de la pantalla */
+  padding: 0; /* Elimina el padding */
+  margin: 0; /* Elimina márgenes adicionales */
+  display: flex;
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: center; /* Centra el contenido verticalmente */
+  position: relative; /* Para el control de la animación */
+  background-color: #e53935; /* Color de fondo rojo */
+  box-shadow: none; /* Elimina cualquier sombra */
+}
+
+/* Recuadro donde se encuentra el texto */
+.promo-box {
+  height: 40px; /* Altura del recuadro reducida */
+  width: 100vw; /* Hace que el recuadro ocupe todo el ancho de la pantalla */
+  background-color: #e53935; /* Color de fondo del recuadro */
+  display: flex;
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: center; /* Centra el contenido verticalmente */
+  overflow: hidden; /* Para que el texto que se desplace no se vea fuera del recuadro */
+  padding: 0 10px; /* Espaciado horizontal dentro del recuadro */
+  border-radius: 20px; /* Bordes redondeados */
+  box-shadow: none; /* Asegura que no haya sombra */
+}
+
+/* Estilo del texto que se moverá dentro del recuadro */
+.promo-text {
+  font-size: 16px; /* Tamaño del texto */
+  color: white; /* Color del texto */
+  font-weight: bold;
+  white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+  animation: slideText 10s linear infinite; /* Animación infinita de desplazamiento */
+}
+
+/* Animación que mueve el texto de izquierda a derecha */
+@keyframes slideText {
+  0% {
+    transform: translateX(-100%); /* Comienza fuera de la pantalla por la izquierda */
+  }
+  50% {
+    transform: translateX(0); /* El texto se encuentra en su posición original (centro) */
+  }
+  100% {
+    transform: translateX(100%); /* Termina completamente fuera de la pantalla por la derecha */
+  }
 }

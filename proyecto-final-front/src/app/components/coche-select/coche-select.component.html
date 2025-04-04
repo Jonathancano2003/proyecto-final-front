@@ -1,10 +1,9 @@
 <div class="car-detail-container">
-    <!-- Imagen del coche en la parte superior -->
     <div class="car-image">
       <img [src]="car?.imageUrl" [alt]="car?.name">
     </div>
   
-    <!-- Información del coche debajo de la imagen -->
+    
     <div class="car-info">
       <h2>{{ car?.name }}</h2>
       <p><strong>Marca:</strong> {{ car?.brand }}</p>
@@ -13,5 +12,8 @@
       <p><strong>Precio:</strong> {{ car?.price | currency:'EUR' }}</p>
       <p><strong>Descripción:</strong> {{ car?.description }}</p>
     </div>
+    <button>
+      <b>Favoritos!</b>
+  </button>
   </div>
   
