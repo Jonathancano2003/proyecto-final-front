@@ -1,0 +1,27 @@
+<div class="d-flex justify-content-center align-items-center min-vh-100">
+    <div class="profile-container">
+        <h2 class="text-center mb-4">Perfil de usuario</h2>
+        <form (ngSubmit)="onSubmit()">
+            <label>Nombre y Apellidos</label>
+            <input type="text" formControlName="nombre">
+        
+            <label>Nombre de Usuario</label>
+            <input type="text" formControlName="username">
+        
+            <label>Email</label>
+            <input type="email" formControlName="email">
+        
+            <label>Contraseña</label>
+            <input type="password" formControlName="password">
+        
+            <label>Teléfono</label>
+            <input type="text" formControlName="telefono">
+        
+            <label>Ciudad</label>
+            <input type="text" formControlName="ciudad">
+        
+            <button type="submit">Guardar</button>
+        </form>
+    </div>
+    
+</div>
