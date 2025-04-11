@@ -1,27 +1,34 @@
 <div class="d-flex justify-content-center align-items-center min-vh-100">
     <div class="profile-container">
         <h2 class="text-center mb-4">Crear anuncio</h2>
-        <form (ngSubmit)="onSubmit()">
-            <label>Marca</label>
-            <input type="text" formControlName="nombre">
-        
-            <label>Modelo</label>
-            <input type="text" formControlName="username">
-        
-            <label>Año</label>
-            <input type="email" formControlName="email">
-        
-            <label>Precio</label>
-            <input type="password" formControlName="password">
-        
-            <label>Descripción</label>
-            <input type="text" formControlName="telefono">
-        
-            <label>Subir foto</label>
-            <input type="text" formControlName="ciudad">
-        
-            <button type="submit">Guardar</button>
+        <form [formGroup]="newAdForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="col-md-6">
+                    <label>Marca</label>
+                    <select class="form-control" formControlName="brand">
+                        <option *ngFor="let marca of marcas" [value]="marca">{{ marca }}</option>
+                    </select>
+
+                    <label>Modelo</label>
+                    <input type="text" class="form-control" formControlName="model">
+
+                    <label>Año</label>
+                    <input type="number" class="form-control" formControlName="year" min="1900" max="2025">
+                </div>
+
+                <div class="col-md-6">
+                    <label>Precio</label>
+                    <input type="number" class="form-control" formControlName="price">
+
+                    <label>Descripción</label>
+                    <textarea class="form-control" rows="3" formControlName="description"></textarea>
+
+                    <label>Subir foto</label>
+                    <input type="file" class="form-control-file" formControlName="photo">
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-danger mt-4 w-100">Subir</button>
         </form>
     </div>
-    
 </div>
