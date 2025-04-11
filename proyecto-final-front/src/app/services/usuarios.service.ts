@@ -36,8 +36,8 @@ export class UsuariosService {
     return this.http.delete(`${this.apiUrl}/${id}`);
   }
 
-  login(email: string, contraseña: string): Observable<any> {
-    const headers = new HttpHeaders().set('Content-Type', 'application/json');
-    return this.http.post(`${this.apiUrl}/login`, { email, contraseña }, { headers });
+  login(email: string, contraseña: string): Observable<Usuario> {
+    return this.http.post<Usuario>(`${this.apiUrl}/login`, { email, contraseña });
   }
+  
 }

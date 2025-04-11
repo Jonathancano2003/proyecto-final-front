@@ -10,10 +10,11 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'inicio', component: PaginaInicioComponent },
-  {path: 'card',component: CarCardComponent},
-  {path:'resultados',component:ResultadosComponent},
-  { path : 'admin', component: AdminPanelComponent},
+  { path: 'card', component: CarCardComponent },
+  { path: 'resultados', component: ResultadosComponent },
+  { path: 'admin', component: AdminPanelComponent },
   { path: 'coche-select', component: CocheSelectComponent },
 
+  { path: '', redirectTo: 'inicio', pathMatch: 'full' }, // 👈 esta línea nueva
   { path: '**', redirectTo: 'login' }
 ];

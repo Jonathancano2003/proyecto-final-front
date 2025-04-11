@@ -6,27 +6,33 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://127.0.0.1:8000/api'; // Cambia esto por la URL real de tu backend
+  private apiUrl = 'http://127.0.0.1:8000/api'; // Base de tu API Symfony
 
   constructor(private http: HttpClient) {}
 
-  // Método para registrar un nuevo usuario
-  register(email: string, password: string): Observable<any> {
-    return this.http.post(`${this.apiUrl}/api/register`, { email, password });
+  // ✅ Registro con nombre, email y contraseña
+  register(nombre: string, email: string, contraseña: string): Observable<any> {
+    return this.http.post(`${this.apiUrl}/usuarios/`, { nombre, email, contraseña });
   }
 
-  // Método para iniciar sesión
-  login(email: string, password: string): Observable<any> {
-    return this.http.post(`${this.apiUrl}/api/login`, { email, password });
+  // ✅ Login
+  login(email: string, contraseña: string): Observable<any> {
+    return this.http.post(`${this.apiUrl}/usuarios/login`, { email, contraseña });
   }
 
-  // Método para cerrar sesión
+  // ✅ Logout
   logout(): void {
-    localStorage.removeItem('token'); // Elimina el token del almacenamiento
+    localStorage.removeItem('usuario'); // Usás 'usuario', no 'token'
   }
 
-  // Método para verificar si el usuario está autenticado
+  // ✅ Verificar si está autenticado
   isAuthenticated(): boolean {
-    return !!localStorage.getItem('token'); // Retorna true si el token existe
+    return !!localStorage.getItem('usuario');
+  }
+
+  // ✅ Obtener el usuario actual
+  getUsuarioActual(): any | null {
+    const usuario = localStorage.getItem('usuario');
+    return usuario ? JSON.parse(usuario) : null;
   }
 }
