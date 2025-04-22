@@ -1,0 +1,67 @@
+<!--<div class="d-flex justify-content-center align-items-center min-vh-100">
+    <div class="profile-container">
+        <h2 class="text-center mb-4">Perfil de usuario</h2>
+        <form (ngSubmit)="onSubmit()">
+            <label>Nombre y Apellidos</label>
+            <input type="text" formControlName="nombre">
+        
+            <label>Nombre de Usuario</label>
+            <input type="text" formControlName="username">
+        
+            <label>Email</label>
+            <input type="email" formControlName="email">
+        
+            <label>Contraseña</label>
+            <input type="password" formControlName="password">
+        
+            <label>Teléfono</label>
+            <input type="text" formControlName="telefono">
+        
+            <label>Ciudad</label>
+            <input type="text" formControlName="ciudad">
+        
+            <button type="submit">Guardar</button>
+        </form>
+    </div>
+    
+</div>-->
+
+<div class="d-flex justify-content-center align-items-center min-vh-100 flex-column">
+    <!-- Parte superior del perfil -->
+    <div class="profile-card">
+        <div class="avatar-wrapper">
+            <!-- Icono SVG -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor"
+                class="icon icon-tabler icons-tabler-filled icon-tabler-user">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M12 2a5 5 0 1 1 -5 5l.005 -.217a5 5 0 0 1 4.995 -4.783z" />
+                <path d="M14 14a5 5 0 0 1 5 5v1a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-1a5 5 0 0 1 5 -5h4z" />
+            </svg>
+        </div>
+        <h3>Olivia Rhye</h3>
+        <p>olivia&#64;untitledui.com</p>
+        <div class="button-group">
+            <button class="btn green" (click)="mostrarFormulario = true">Actualizar perfil</button>
+            <button class="btn red">Eliminar perfil</button>
+        </div>
+    </div>
+
+    <!-- Formulario -->
+    <div class="form-card" *ngIf="mostrarFormulario">
+        <form [formGroup]="userProfileForm" (ngSubmit)="onSubmit()">
+            <label>Nombre y Apellidos</label>
+            <input type="text" formControlName="nombre" />
+            <label>Nombre de Usuario</label>
+            <input type="text" formControlName="username" />
+            <label>Email</label>
+            <input type="email" formControlName="email" />
+            <label>Contraseña</label>
+            <input type="password" formControlName="password" />
+            <label>Teléfono</label>
+            <input type="text" formControlName="telefono" />
+            <label>Ciudad</label>
+            <input type="text" formControlName="ciudad" />
+            <button type="submit" class="submit-btn">Guardar</button>
+        </form>
+    </div>
+</div>
