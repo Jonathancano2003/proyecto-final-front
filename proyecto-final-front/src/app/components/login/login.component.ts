@@ -1,9 +1,8 @@
 import { Component, OnInit, OnDestroy, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { UsuariosService } from '../../services/usuarios.service';
-import { Router } from '@angular/router'; // Importamos el Router
-import { Usuario } from '../../models/usuario.model'; // Asegúrate de que la ruta sea correcta
+import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +16,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   password: string = '';
   mensaje: string = '';
 
-  private usuariosService = inject(UsuariosService);
+  private authService = inject(AuthService);
   private router = inject(Router);
 
   ngOnInit() {
@@ -29,10 +28,10 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   onSubmit() {
-    this.usuariosService.login(this.email, this.password).subscribe({
-      next: (usuario: Usuario) => {
-        localStorage.setItem('usuario', JSON.stringify(usuario)); // 👈 Guardamos al usuario
-        this.router.navigate(['/']); // 👈 Redirigir al home u otra ruta
+    this.authService.login(this.email, this.password).subscribe({
+      next: (usuario) => {
+        localStorage.setItem('usuario', JSON.stringify(usuario));
+        this.router.navigate(['/inicio']);
       },
       error: (err) => {
         this.mensaje = err.error?.error || 'Error al iniciar sesión';

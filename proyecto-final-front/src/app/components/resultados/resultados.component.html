@@ -31,14 +31,10 @@
 
   <!-- Lista de coches -->
   <section class="cars-list">
-    <app-car-card
-      *ngFor="let car of cars"
-      [carImage]="car.carImage"
-      [vehicleName]="car.vehicleName"
-      [kilometers]="car.kilometers"
-      [power]="car.power"
-      [price]="car.price"
-     >
+    <app-car-card *ngFor="let car of cars" [carImage]="car.image" [vehicleName]="car.brand + ' ' + car.model"
+      [kilometers]="car.mileage" [power]="car.year" [price]="car.price" (click)="selectCar(car)">
     </app-car-card>
   </section>
+
+
 </div>

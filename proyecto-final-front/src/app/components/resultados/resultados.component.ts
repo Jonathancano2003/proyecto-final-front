@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CarCardComponent } from '../../components/car-card/car-card.component';
 import { VehiculosService } from '../../services/vehiculos.service';
+import { Router } from '@angular/router';
+import { Coche } from '../../models/coche.model';
 
 @Component({
   selector: 'app-resultados',
@@ -20,17 +22,18 @@ export class ResultadosComponent implements OnInit {
     ofertas: false
   };
 
-  cars: any[] = [];
-  selectedCar: any = null;
+  cars: Coche[] = [];
 
-  constructor(private vehiculosService: VehiculosService) {}
+  private vehiculosService = inject(VehiculosService);
+  private router = inject(Router);
 
   ngOnInit(): void {
     this.cars = this.vehiculosService.getVehiculos();
   }
 
-  selectCar(car: any) {
-    this.selectedCar = car;
+  selectCar(car: Coche): void {
+    this.vehiculosService.setSelectedCar(car);
+    this.router.navigate(['/coche-select']);
   }
 
   resetFilters() {
