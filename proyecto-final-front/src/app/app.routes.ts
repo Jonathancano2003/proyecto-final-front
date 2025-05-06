@@ -7,7 +7,7 @@ import { ResultadosComponent } from './components/resultados/resultados.componen
 import { AdminPanelComponent } from './components/admin-panel/admin-panel.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { NewAdComponent } from './components/new-ad/new-ad.component';
-
+import { CocheSelectComponent } from './components/coche-select/coche-select.component';
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
@@ -17,6 +17,6 @@ export const routes: Routes = [
   { path : 'admin', component: AdminPanelComponent},
   { path: 'profile', component: UserProfileComponent },
   { path: 'new-ad', component: NewAdComponent },
-  
+  {path: 'coche-select', component: CocheSelectComponent},
   { path: '**', redirectTo: 'login' }
 ];
