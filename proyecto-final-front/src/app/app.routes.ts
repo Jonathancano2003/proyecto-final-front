@@ -17,6 +17,7 @@ export const routes: Routes = [
   { path : 'admin', component: AdminPanelComponent},
   { path: 'profile', component: UserProfileComponent },
   { path: 'new-ad', component: NewAdComponent },
-  {path: 'coche-select', component: CocheSelectComponent},
+  { path: 'coche-select', component: CocheSelectComponent},
+  
   { path: '**', redirectTo: 'login' }
 ];
