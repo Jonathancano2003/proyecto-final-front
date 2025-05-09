@@ -8,6 +8,8 @@ import { AdminPanelComponent } from './components/admin-panel/admin-panel.compon
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { NewAdComponent } from './components/new-ad/new-ad.component';
 import { CocheSelectComponent } from './components/coche-select/coche-select.component';
+import { AnunciosComponent } from './admin/anuncios/anuncios.component';
+
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
@@ -18,6 +20,8 @@ export const routes: Routes = [
   { path: 'profile', component: UserProfileComponent },
   { path: 'new-ad', component: NewAdComponent },
   { path: 'coche-select', component: CocheSelectComponent},
-  
+  { path: 'admin/anuncios', component: AnunciosComponent },
+
+
   { path: '**', redirectTo: 'login' }
 ];

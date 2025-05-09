@@ -1,16 +1,49 @@
-<div class="d-flex justify-content-between align-items-center bg-light p-3 rounded shadow-sm mb-3">
-  <div class="fw-bold fs-5">
-    {{ anuncio.id }}.- Anuncio de {{ anuncio.titulo || '------------------------' }}
+<div class="card shadow-sm p-3 mb-3 rounded">
+  <!-- Título del anuncio y botones de acción -->
+  <div class="d-flex justify-content-between align-items-center bg-light p-3 rounded">
+    <div class="fw-bold fs-5">
+      Anuncio de:
+      <h3 class="mb-0">{{ anuncio.brand }} {{ anuncio.model }}</h3>
+    </div>
+    <div class="d-flex gap-2">
+      <button class="btn btn-danger d-flex align-items-center gap-1" (click)="onEliminar()">
+        <i class="bi bi-trash"></i> <span>Eliminar</span>
+      </button>
+      <button class="btn btn-warning d-flex align-items-center gap-1 text-white" (click)="onEditar()">
+        <i class="bi bi-pencil"></i> <span>Editar</span>
+      </button>
+      <button class="btn btn-success d-flex align-items-center gap-1" (click)="onVisualizar()">
+        <i class="bi bi-eye"></i> <span>Visualizar</span>
+      </button>
+    </div>
   </div>
-  <div class="d-flex gap-2">
-    <button class="btn btn-danger d-flex align-items-center gap-1">
-      <i class="bi bi-trash"></i> <span>Eliminar</span>
-    </button>
-    <button class="btn btn-warning d-flex align-items-center gap-1 text-white">
-      <i class="bi bi-pencil"></i> <span>Editar</span>
-    </button>
-    <button class="btn btn-success d-flex align-items-center gap-1">
-      <i class="bi bi-eye"></i> <span>Visualizar</span>
-    </button>
+
+  <!-- Detalles del coche -->
+  <div class="card-body">
+
+    <!-- Imagen destacada -->
+    <div class="text-center my-3">
+      <img
+        *ngIf="anuncio?.imagen || anuncio?.image"
+        [src]="anuncio.imagen || anuncio.image"
+        alt="Imagen del coche"
+        class="rounded shadow-sm img-thumbnail"
+        style="max-height: 250px; object-fit: cover; width: 100%; max-width: 400px;"
+      />
+      <div *ngIf="!anuncio?.imagen && !anuncio?.image" class="text-muted fst-italic">
+        Imagen no disponible
+      </div>
+    </div>
+
+    <!-- Mostrar el precio -->
+    <p><strong>Precio:</strong> {{ anuncio.price | currency: 'EUR' }}</p>
+
+    <!-- Mostrar el año y los kilómetros -->
+    <p><strong>Año:</strong> {{ anuncio.year }}</p>
+    <p><strong>Kilómetros:</strong> {{ anuncio.mileage }} km</p>
+
+    <!-- Mostrar la descripción si existe -->
+    <p><strong>Descripción:</strong> {{ anuncio.description || 'No disponible' }}</p>
+
   </div>
 </div>
