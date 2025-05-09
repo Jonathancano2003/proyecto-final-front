@@ -1,0 +1,44 @@
+.about-container { 
+    background-color: #000;
+    color: #ffffff;
+    padding: 2rem;
+    border-radius: 1rem;
+    max-width: 800px;
+    margin: 2rem auto;
+    font-family: Arial, sans-serif;
+}
+
+:host {
+    display: block;
+    background-color: black;
+    min-height: 100vh; /* ocupa toda la altura de la ventana */
+    padding: 2rem;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+h1, h2, h3 {
+    color: #e53935;
+}
+
+p {
+    line-height: 1.6;
+}
+
+a {
+    color: #1e90ff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
