@@ -10,6 +10,8 @@ import { NewAdComponent } from './components/new-ad/new-ad.component';
 import { CocheSelectComponent } from './components/coche-select/coche-select.component';
 import { AnunciosComponent } from './admin/anuncios/anuncios.component';
 
+import { PoliticaPrivacidadComponent } from './politica-privacidad/politica-privacidad.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
@@ -23,5 +25,8 @@ export const routes: Routes = [
   { path: 'admin/anuncios', component: AnunciosComponent },
 
 
+  { path: 'politica-privacidad', component: PoliticaPrivacidadComponent},
+  { path: 'about-us', component: AboutUsComponent},
+  
   { path: '**', redirectTo: 'login' }
 ];

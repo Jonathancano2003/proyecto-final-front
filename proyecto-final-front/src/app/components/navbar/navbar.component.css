@@ -99,7 +99,7 @@
     font-weight: 700;
     color: white;
     background-color: transparent;
-    border: 3px solid rgb(252, 70, 100);  /* Color de borde */
+    border: 3px solid #e53935;  /* Color de borde */
     padding: 0.8rem 1.6rem;
     border-radius: 8px;
     cursor: pointer;
@@ -110,7 +110,7 @@
   
   /* Hover effect para el botón de perfil */
   .btn-profile:hover {
-    background-color: rgb(252, 70, 100);  /* Fondo cuando se pasa el cursor */
+    background-color: #e53935;  /* Fondo cuando se pasa el cursor */
     color: white;
     transform: scale(1.05);
     box-shadow: 0 4px 8px rgba(229, 57, 53, 0.5);
