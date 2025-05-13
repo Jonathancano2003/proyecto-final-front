@@ -8,6 +8,8 @@ import { AdminPanelComponent } from './components/admin-panel/admin-panel.compon
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { NewAdComponent } from './components/new-ad/new-ad.component';
 import { CocheSelectComponent } from './components/coche-select/coche-select.component';
+import { FavoritosComponent } from './components/favoritos/favoritos.component'; // ✅ nuevo
+
 import { AnunciosComponent } from './admin/anuncios/anuncios.component';
 import { EditarCocheComponent } from './admin/anuncios/editar-coche/editar-coche.component';
 
@@ -18,12 +20,15 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'inicio', component: PaginaInicioComponent },
-  {path: 'card',component: CarCardComponent},
-  {path:'resultados',component:ResultadosComponent},
-  { path : 'admin', component: AdminPanelComponent},
+  { path: 'card', component: CarCardComponent },
+  { path: 'resultados', component: ResultadosComponent },
+  { path: 'admin', component: AdminPanelComponent },
+  
   { path: 'profile', component: UserProfileComponent },
   { path: 'new-ad', component: NewAdComponent },
-  { path: 'coche-select', component: CocheSelectComponent},
+  { path: 'coche-select', component: CocheSelectComponent },
+  { path: 'favoritos', component: FavoritosComponent }, // ✅ nueva ruta
+
   { path: 'admin/anuncios', component: AnunciosComponent },
   { path: 'editar-coche', component: EditarCocheComponent },
 

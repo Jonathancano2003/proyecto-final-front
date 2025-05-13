@@ -29,12 +29,17 @@
     </div>
   </aside>
 
-  <!-- Lista de coches -->
   <section class="cars-list">
-    <app-car-card *ngFor="let car of cars" [carImage]="car.image" [vehicleName]="car.brand + ' ' + car.model"
-      [kilometers]="car.mileage" [power]="car.year" [price]="car.price" (click)="selectCar(car)">
+    <app-car-card
+      *ngFor="let car of cars"
+      [carImage]="car.imagen"
+      [vehicleName]="car.marca + ' ' + car.modelo"
+      [kilometers]="car.kilometraje"
+      [power]="car.year"
+      [price]="car.precio"
+      (click)="selectCar(car)">
     </app-car-card>
   </section>
-
+  
 
 </div>

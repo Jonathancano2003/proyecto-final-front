@@ -1,11 +1,10 @@
 export interface Coche {
-    id: number;
-    brand: string;
-    model: string;
-    year: number;
-    mileage: number;
-    image: string;
-    description: string;
-    price: number;
-  }
-  
+  id: number;
+  marca: string;
+  modelo: string;
+  year: number;
+  kilometraje: number;
+  imagen: string;
+  descripcion: string;
+  precio: number;
+}

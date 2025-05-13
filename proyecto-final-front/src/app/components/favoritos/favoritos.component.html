@@ -1,0 +1,11 @@
+<section class="cars-list">
+  <app-car-card
+    *ngFor="let car of favoritos"
+    [carImage]="car.imagen"
+    [vehicleName]="car.marca + ' ' + car.modelo"
+    [kilometers]="car.kilometraje"
+    [power]="car.year"
+    [price]="car.precio"
+    (click)="verDetalles(car)"
+  ></app-car-card>
+</section>

@@ -1,18 +1,17 @@
 <div class="body">
   <div class="car-image">
-    <img [src]="carImage || 'https://via.placeholder.com/120x80'" alt="Car Image" />
+    <img [src]="carImage || 'https://placehold.co/120x80'" alt="Car Image" />
   </div>
 
   <div class="car-details">
     <h3>{{ vehicleName || 'Vehículo Desconocido' }}</h3>
     <p>Kilómetros: {{ kilometers || 0 }}</p>
     <p>Potencia: {{ power || 'N/A' }}cv</p>
-    
   </div>
 
   <div class="car-price">
     <p class="pvp-label">PVP:</p>
     <p class="price">{{ price | currency:'EUR':'symbol':'1.0-0' }}</p>
-    <button class="details-button">→</button>
+    <button class="details-button" (click)="onDetailsClick()">→</button>
   </div>
 </div>

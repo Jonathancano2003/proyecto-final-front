@@ -2,7 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-user-profile',
   standalone: true,
@@ -16,7 +16,7 @@ export class UserProfileComponent implements OnInit {
 
   private fb = inject(FormBuilder);
   private authService = inject(AuthService);
-
+private router = inject(Router);
   constructor() {
     this.userProfileForm = this.fb.group({
       nombre: [''],
@@ -48,5 +48,7 @@ export class UserProfileComponent implements OnInit {
     // Lógica futura para eliminar el perfil del usuario
     console.log('Eliminar perfil (falta implementar)');
   }
-  
+  irAFavoritos() {
+    this.router.navigate(['/favoritos']);
+  }
 }
