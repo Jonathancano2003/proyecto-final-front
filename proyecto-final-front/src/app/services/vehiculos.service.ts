@@ -41,7 +41,7 @@ export class VehiculosService {
   updateCoche(coche: Coche): Observable<any> {
     const url = `http://localhost:8000/api/cars/update/${coche.id}`;
     
-    // Symfony espera estos nombres de campo
+   
     const payload = {
       marca: coche.brand,
       modelo: coche.model,

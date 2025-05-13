@@ -1,0 +1,61 @@
+<div *ngIf="coche" class="card shadow-sm p-4 rounded">
+  <!-- Encabezado -->
+  <div class="d-flex justify-content-between align-items-center bg-light p-3 rounded mb-3">
+    <div>
+      <h3 class="mb-0">Editar coche: {{ coche.brand }} {{ coche.model }}</h3>
+    </div>
+  </div>
+
+  <form (ngSubmit)="guardarCambios()" class="row g-3">
+
+    <div class="col-md-6">
+      <label class="form-label">Marca</label>
+      <input [(ngModel)]="coche.brand" name="brand" class="form-control" />
+    </div>
+
+    <div class="col-md-6">
+      <label class="form-label">Modelo</label>
+      <input [(ngModel)]="coche.model" name="model" class="form-control" />
+    </div>
+
+    <div class="col-md-4">
+      <label class="form-label">Año</label>
+      <input [(ngModel)]="coche.year" name="year" type="number" class="form-control" />
+    </div>
+
+    <div class="col-md-4">
+      <label class="form-label">Kilometraje</label>
+      <input [(ngModel)]="coche.mileage" name="mileage" type="number" class="form-control" />
+    </div>
+
+    <div class="col-md-4">
+      <label class="form-label">Precio (€)</label>
+      <input [(ngModel)]="coche.price" name="price" type="number" class="form-control" />
+    </div>
+
+    <div class="col-12">
+      <label class="form-label">Descripción</label>
+      <textarea [(ngModel)]="coche.description" name="description" rows="4" class="form-control"></textarea>
+    </div>
+
+    <div class="col-12">
+      <label class="form-label">Imagen (URL)</label>
+      <input [(ngModel)]="coche.image" name="image" class="form-control" />
+    </div>
+
+    <div class="col-12 text-center mt-4">
+      <img *ngIf="coche.image"
+        [src]="coche.image"
+        class="rounded shadow-sm img-thumbnail"
+        style="max-height: 250px; object-fit: cover; width: 100%; max-width: 400px;"
+      />
+    </div>
+
+    <div class="col-12 text-end mt-3">
+      <button type="submit" class="btn btn-success">
+        <i class="bi bi-check-lg"></i> Guardar
+      </button>
+    </div>
+    
+  </form>
+</div>
