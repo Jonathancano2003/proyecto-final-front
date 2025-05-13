@@ -1,15 +1,15 @@
 <div class="car-detail-container" *ngIf="car">
   <div class="car-image">
-    <img [src]="car.image" [alt]="car.model">
+    <img [src]="car.imagen" [alt]="car.modelo">
   </div>
 
   <div class="car-info">
-    <h2>{{ car.brand }} {{ car.model }}</h2>
-    <p><strong>Year:</strong> {{ car.year }}</p>
-    <p><strong>Mileage:</strong> {{ car.mileage }} km</p>
-    <p><strong>Price:</strong> {{ car.price | currency:'EUR' }}</p>
-    <p><strong>Description:</strong> {{ car.description }}</p>
+    <h2>{{ car.marca }} {{ car.modelo }}</h2>
+    <p><strong>Año:</strong> {{ car.year }}</p>
+    <p><strong>Kilometraje:</strong> {{ car.kilometraje }} km</p>
+    <p><strong>Precio:</strong> {{ car.precio | currency:'EUR' }}</p>
+    <p><strong>Descripción:</strong> {{ car.descripcion }}</p>
   </div>
 
-  <button><b>Favoritos!</b></button>
+  <button (click)="guardarEnFavoritos()"><b>Favoritos!</b></button>
 </div>

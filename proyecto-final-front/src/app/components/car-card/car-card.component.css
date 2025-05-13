@@ -1,65 +1,60 @@
 .body {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: white;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  padding: 10px;
-  width: auto;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  flex-direction: column;
+  height: 100%;
 }
 
 .car-image img {
-  width: 120px;
-  height: 80px;
+  width: 100%;
+  height: auto;
   object-fit: cover;
   border-radius: 4px;
 }
 
 .car-details {
-  flex-grow: 1;
-  margin-left: 10px;
-  color: #333;
+  flex: 1;
+  padding: 0.5rem 0;
 }
 
 .car-details h3 {
-  margin: 0 0 5px 0;
-  color: red;
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0;
+  word-wrap: break-word;
 }
 
 .car-details p {
-  margin: 2px 0;
-  font-size: 14px;
+  font-size: 0.85rem;
+  margin: 0.25rem 0;
 }
 
 .car-price {
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
   justify-content: space-between;
-  height: 100%;
+  align-items: center;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+  gap: 0.25rem;
 }
 
-.car-price .pvp-label {
-  margin: 0;
-}
-
-.car-price .price {
-  font-size: 18px;
-  color: red;
-  margin: 0;
+.pvp-label {
   font-weight: bold;
 }
 
+.price {
+  font-weight: bold;
+  color: red;
+  word-break: break-word;
+  max-width: 100px;
+}
+
 .details-button {
-  background: #222;
+  background-color: black;
   color: white;
   border: none;
+  padding: 0.3rem 0.6rem;
   border-radius: 50%;
-  width: 26px;
-  height: 26px;
+  font-weight: bold;
   cursor: pointer;
-  font-size: 14px;
-  margin-top: 10px;
 }

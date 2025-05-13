@@ -12,6 +12,10 @@
       <button class="btn eliminar" (click)="onDelete()">
         Eliminar perfil
       </button>
+      <button class="btn ver-favoritos" (click)="irAFavoritos()">
+        Ver favoritos
+      </button>
+    
     </div>
   
     <form *ngIf="mostrarFormulario" [formGroup]="userProfileForm" (ngSubmit)="onSubmit()" class="formulario-perfil">

@@ -31,6 +31,7 @@ export class ResultadosComponent implements OnInit {
   ngOnInit(): void {
     this.vehiculosService.getVehiculos().subscribe({
       next: (data) => {
+        console.log('Coches recibidos:', data); // ⬅️ PUNTO CLAVE
         this.cars = data;
       },
       error: (err) => {
@@ -38,6 +39,7 @@ export class ResultadosComponent implements OnInit {
       }
     });
   }
+  
 
   selectCar(car: Coche): void {
     this.vehiculosService.setSelectedCar(car);
