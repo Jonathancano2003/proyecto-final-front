@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CardAnuncioComponent } from '../../shared/card-anuncio/card-anuncio.component';
 import { VehiculosService } from './../../services/vehiculos.service';
 import { Coche } from '../../models/coche.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-anuncios',
@@ -13,12 +14,12 @@ import { Coche } from '../../models/coche.model';
 export class AnunciosComponent implements OnInit {
   coches: Coche[] = [];
   private vehiculosService = inject(VehiculosService);
+  private router = inject(Router);
 
   ngOnInit() {
     this.loadCoches();
   }
 
-  // Cargar coches desde el servicio
   loadCoches() {
     this.vehiculosService.getVehiculos().subscribe({
       next: (data) => {
@@ -30,7 +31,6 @@ export class AnunciosComponent implements OnInit {
     });
   }
 
-  // Manejar la acción de eliminar un coche
   onEliminar(coche: Coche) {
     this.vehiculosService.deleteCoche(coche.id).subscribe({
       next: () => {
@@ -42,13 +42,12 @@ export class AnunciosComponent implements OnInit {
     });
   }
 
-  
   onEditar(coche: Coche) {
     console.log('Editar coche:', coche);
   }
 
-  
   onVisualizar(coche: Coche) {
-    console.log('Visualizar coche:', coche);
+    this.vehiculosService.setSelectedCar(coche);
+    this.router.navigate(['/coche-select']);
   }
 }

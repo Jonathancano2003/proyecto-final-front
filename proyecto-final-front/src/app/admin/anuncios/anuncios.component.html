@@ -3,5 +3,6 @@
     *ngFor="let coche of coches"
     [anuncio]="coche"
     (eliminar)="onEliminar(coche)"
-  ></app-card-anuncio>
+    (visualizar)="onVisualizar(coche)">
+  </app-card-anuncio>
 </div>
