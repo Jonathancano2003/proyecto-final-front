@@ -43,7 +43,8 @@ export class AnunciosComponent implements OnInit {
   }
 
   onEditar(coche: Coche) {
-    console.log('Editar coche:', coche);
+    this.vehiculosService.setSelectedCar(coche);
+    this.router.navigate(['/editar-coche']);
   }
 
   onVisualizar(coche: Coche) {

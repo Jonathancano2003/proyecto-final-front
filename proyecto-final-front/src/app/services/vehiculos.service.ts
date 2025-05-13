@@ -38,6 +38,24 @@ export class VehiculosService {
   getSelectedCar(): Coche | null {
     return this.selectedCar;
   }
+  updateCoche(coche: Coche): Observable<any> {
+    const url = `http://localhost:8000/api/cars/update/${coche.id}`;
+    
+    // Symfony espera estos nombres de campo
+    const payload = {
+      marca: coche.brand,
+      modelo: coche.model,
+      año: coche.year,
+      kilometraje: coche.mileage,
+      precio: coche.price,
+      descripcion: coche.description,
+      imagen: coche.image,
+    };
+  
+    return this.http.put(url, payload);
+  }
+  
+  
 
   // Eliminar un coche por su id
   deleteCoche(id: number): Observable<any> {

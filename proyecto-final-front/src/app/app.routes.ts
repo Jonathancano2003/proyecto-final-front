@@ -9,6 +9,8 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { NewAdComponent } from './components/new-ad/new-ad.component';
 import { CocheSelectComponent } from './components/coche-select/coche-select.component';
 import { AnunciosComponent } from './admin/anuncios/anuncios.component';
+import { EditarCocheComponent } from './admin/anuncios/editar-coche/editar-coche.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { PoliticaPrivacidadComponent } from './politica-privacidad/politica-privacidad.component';
 import { AboutUsComponent } from './about-us/about-us.component';
@@ -23,6 +25,8 @@ export const routes: Routes = [
   { path: 'new-ad', component: NewAdComponent },
   { path: 'coche-select', component: CocheSelectComponent},
   { path: 'admin/anuncios', component: AnunciosComponent },
+  { path: 'editar-coche', component: EditarCocheComponent },
+
 
 
   { path: 'politica-privacidad', component: PoliticaPrivacidadComponent},

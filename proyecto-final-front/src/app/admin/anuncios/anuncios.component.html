@@ -1,8 +1,7 @@
-<div class="anuncio-container">
-  <app-card-anuncio
-    *ngFor="let coche of coches"
-    [anuncio]="coche"
-    (eliminar)="onEliminar(coche)"
-    (visualizar)="onVisualizar(coche)">
-  </app-card-anuncio>
-</div>
+<app-card-anuncio
+  *ngFor="let coche of coches"
+  [anuncio]="coche"
+  (eliminar)="onEliminar(coche)"
+  (editar)="onEditar(coche)"
+  (visualizar)="onVisualizar(coche)"
+></app-card-anuncio>
