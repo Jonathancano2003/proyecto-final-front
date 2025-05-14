@@ -3,7 +3,7 @@
   <div class="d-flex justify-content-between align-items-center bg-light p-3 rounded">
     <div class="fw-bold fs-5">
       Anuncio de:
-      <h3 class="mb-0">{{ anuncio.brand }} {{ anuncio.model }}</h3>
+      <h3 class="mb-0">{{ anuncio.marca }} {{ anuncio.modelo }}</h3>
     </div>
     <div class="d-flex gap-2">
       <button class="btn btn-danger d-flex align-items-center gap-1" (click)="onEliminar()">
@@ -24,26 +24,26 @@
     <!-- Imagen destacada -->
     <div class="text-center my-3">
       <img
-        *ngIf="anuncio?.imagen || anuncio?.image"
-        [src]="anuncio.imagen || anuncio.image"
+        *ngIf="anuncio?.imagen"
+        [src]="anuncio.imagen"
         alt="Imagen del coche"
         class="rounded shadow-sm img-thumbnail"
         style="max-height: 250px; object-fit: cover; width: 100%; max-width: 400px;"
       />
-      <div *ngIf="!anuncio?.imagen && !anuncio?.image" class="text-muted fst-italic">
+      <div *ngIf="!anuncio?.imagen" class="text-muted fst-italic">
         Imagen no disponible
       </div>
     </div>
 
     <!-- Mostrar el precio -->
-    <p><strong>Precio:</strong> {{ anuncio.price | currency: 'EUR' }}</p>
+    <p><strong>Precio:</strong> {{ anuncio.precio | currency: 'EUR' }}</p>
 
     <!-- Mostrar el año y los kilómetros -->
     <p><strong>Año:</strong> {{ anuncio.year }}</p>
-    <p><strong>Kilómetros:</strong> {{ anuncio.mileage }} km</p>
+    <p><strong>Kilometraje:</strong> {{ anuncio.kilometraje }} km</p>
 
     <!-- Mostrar la descripción si existe -->
-    <p><strong>Descripción:</strong> {{ anuncio.description || 'No disponible' }}</p>
+    <p><strong>Descripción:</strong> {{ anuncio.descripcion || 'No disponible' }}</p>
 
   </div>
 </div>
