@@ -8,14 +8,12 @@ import { AdminPanelComponent } from './components/admin-panel/admin-panel.compon
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { NewAdComponent } from './components/new-ad/new-ad.component';
 import { CocheSelectComponent } from './components/coche-select/coche-select.component';
-import { FavoritosComponent } from './components/favoritos/favoritos.component'; // ✅ nuevo
-
+import { FavoritosComponent } from './components/favoritos/favoritos.component';
 import { AnunciosComponent } from './admin/anuncios/anuncios.component';
 import { EditarCocheComponent } from './admin/anuncios/editar-coche/editar-coche.component';
-
-
 import { PoliticaPrivacidadComponent } from './politica-privacidad/politica-privacidad.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
@@ -23,19 +21,20 @@ export const routes: Routes = [
   { path: 'card', component: CarCardComponent },
   { path: 'resultados', component: ResultadosComponent },
   { path: 'admin', component: AdminPanelComponent },
-  
   { path: 'profile', component: UserProfileComponent },
   { path: 'new-ad', component: NewAdComponent },
   { path: 'coche-select', component: CocheSelectComponent },
-  { path: 'favoritos', component: FavoritosComponent }, // ✅ nueva ruta
+  { path: 'favoritos', component: FavoritosComponent },
 
+  // ADMIN
   { path: 'admin/anuncios', component: AnunciosComponent },
+  { path: 'admin/crear-coche', loadComponent: () => import('./admin/crear-coche/crear-coche.component').then(m => m.CrearCocheComponent) },
   { path: 'editar-coche', component: EditarCocheComponent },
 
+  // Información
+  { path: 'politica-privacidad', component: PoliticaPrivacidadComponent },
+  { path: 'about-us', component: AboutUsComponent },
 
-
-  { path: 'politica-privacidad', component: PoliticaPrivacidadComponent},
-  { path: 'about-us', component: AboutUsComponent},
-  
+  // Wildcard
   { path: '**', redirectTo: 'login' }
 ];

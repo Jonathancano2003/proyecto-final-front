@@ -60,4 +60,17 @@ export class VehiculosService {
       })
     );
   }
+  createCoche(coche: Coche): Observable<any> {
+    const url = 'http://localhost:8000/api/cars/create';
+    return this.http.post(url, {
+      marca: coche.marca,
+      modelo: coche.modelo,
+      year: coche.year,
+      kilometraje: coche.kilometraje,
+      precio: coche.precio,
+      descripcion: coche.descripcion,
+      imagen: coche.imagen
+    });
+  }
+  
 }
