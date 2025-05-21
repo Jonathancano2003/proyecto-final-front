@@ -13,6 +13,7 @@ import { AnunciosComponent } from './admin/anuncios/anuncios.component';
 import { EditarCocheComponent } from './admin/anuncios/editar-coche/editar-coche.component';
 import { PoliticaPrivacidadComponent } from './politica-privacidad/politica-privacidad.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { CarritoComponent } from './components/carrito/carrito.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -25,6 +26,8 @@ export const routes: Routes = [
   { path: 'new-ad', component: NewAdComponent },
   { path: 'coche-select', component: CocheSelectComponent },
   { path: 'favoritos', component: FavoritosComponent },
+  { path: 'carrito', component: CarritoComponent },
+
 
   // ADMIN
   { path: 'admin/anuncios', component: AnunciosComponent },

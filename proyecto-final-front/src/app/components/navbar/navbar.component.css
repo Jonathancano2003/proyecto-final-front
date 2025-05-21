@@ -9,7 +9,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 10px;
+  padding: 0 20px;
   z-index: 1000;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
@@ -22,34 +22,29 @@
   align-items: center;
 }
 
-.logo img.logo-img {
-  height: 80px;
-  width: auto;
-}
-
 .logo {
   display: flex;
   align-items: center;
   text-decoration: none;
+  transition: opacity 0.3s ease;
 }
 
 .logo:hover {
   opacity: 0.8;
 }
 
-.nav-right {
+.logo-img {
+  height: 60px;
+  width: auto;
+}
+
+.nav-actions {
   display: flex;
   align-items: center;
   gap: 20px;
 }
 
-.profile-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: 20px;
-}
-
+/* BOTÓN PERFIL */
 .btn-profile {
   font-size: 16px;
   font-weight: 700;
@@ -61,27 +56,145 @@
   cursor: pointer;
   text-decoration: none;
   font-family: inherit;
-  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn-profile::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #e53935;
+  transform: translateX(-100%);
+  transition: all 0.3s;
+  z-index: -1;
 }
 
 .btn-profile:hover {
-  background-color: #e53935;
-  color: white;
   transform: scale(1.05);
-  box-shadow: 0 4px 8px rgba(229, 57, 53, 0.5);
+  box-shadow: 0 6px 12px rgba(229, 57, 53, 0.5);
+  color: white;
 }
 
+.btn-profile:hover::before {
+  transform: translateX(0);
+}
+
+/* CARRITO */
+.cart-container {
+  position: relative;
+}
+
+.btn-cart {
+  background-color: transparent;
+  border: 3px solid #e53935;
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 0.7rem 1.4rem;
+  border-radius: 8px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn-cart::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #e53935;
+  transform: translateX(-100%);
+  transition: all 0.3s;
+  z-index: -1;
+}
+
+.btn-cart:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(229, 57, 53, 0.5);
+  color: white;
+}
+
+.btn-cart:hover::before {
+  transform: translateX(0);
+}
+
+.badge {
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 10px;
+  margin-left: 6px;
+}
+
+/* VENTANA CARRITO */
+.cart-dropdown {
+  position: absolute;
+  top: 120%;
+  right: 0;
+  background-color: white;
+  color: black;
+  width: 260px;
+  border-radius: 8px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  padding: 15px;
+  z-index: 1001;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.precio {
+  font-weight: bold;
+  color: #e53935;
+}
+
+.ver-carrito-btn {
+  display: inline-block;
+  margin-top: 8px;
+  text-align: right;
+  font-weight: bold;
+  font-size: 14px;
+  text-decoration: none;
+  color: #e53935;
+}
+
+.ver-carrito-btn:hover {
+  text-decoration: underline;
+}
+
+/* RESPONSIVE */
 @media (max-width: 768px) {
-  .nav-right {
+  .nav-actions {
     flex-direction: column;
     gap: 10px;
   }
 
-  .profile-btn {
-    margin-left: 0;
+  .btn-profile,
+  .btn-cart {
+    width: 100%;
+    text-align: center;
   }
-}
-
-.main-content {
-  margin-top: 80px;
+  .cart-total {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 14px;
+    margin: 8px 0;
+  }
 }

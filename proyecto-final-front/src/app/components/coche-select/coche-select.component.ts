@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { VehiculosService } from '../../services/vehiculos.service';
 import { FavoritosService } from '../../services/favoritos.service';
 import { AuthService } from '../../services/auth.service';
+import { CartService } from '../../services/cart.service'; // 👈 NUEVO
 
 @Component({
   selector: 'app-coche-select',
@@ -17,7 +18,8 @@ export class CocheSelectComponent implements OnInit {
   constructor(
     private vehiculosService: VehiculosService,
     private favoritosService: FavoritosService,
-    private authService: AuthService
+    private authService: AuthService,
+    private cartService: CartService
   ) {}
 
   ngOnInit() {
@@ -50,4 +52,10 @@ export class CocheSelectComponent implements OnInit {
       error: (err) => console.error('Error al guardar favorito:', err)
     });
   }
+    // ✅ NUEVO MÉTODO
+    anadirAlCarrito() {
+      if (!this.car) return;
+      this.cartService.addToCart(this.car);
+      alert('✅ Coche añadido al carrito');
+    }
 }

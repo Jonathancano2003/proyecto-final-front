@@ -1,19 +1,43 @@
-import { Component } from '@angular/core';
+// src/app/components/navbar/navbar.component.ts
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { CartService } from '../../services/cart.service';
+import { RouterModule } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule, RouterModule],
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  styleUrls: ['./navbar.component.css'],
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit, OnDestroy {
   menuActive = false;
   dropdownActive = false;
+  mostrarCarrito = false;
+  carrito: any[] = [];
+  totalCarrito: number = 0;
+  private cartSub!: Subscription;
 
-  toggleMenu() {
-    this.menuActive = !this.menuActive; 
+  constructor(private cartService: CartService) {}
+
+  ngOnInit(): void {
+    this.cartSub = this.cartService.getCartObservable().subscribe((carrito) => {
+      this.carrito = carrito;
+      this.totalCarrito = carrito.reduce((sum, item) => sum + (item.precio || 0), 0);
+    });
   }
-  toggleDropdown() {
-    this.dropdownActive = !this.dropdownActive;  // Alternar el desplegable
+
+  ngOnDestroy(): void {
+    if (this.cartSub) this.cartSub.unsubscribe();
+  }
+
+  toggleCarrito() {
+    this.mostrarCarrito = !this.mostrarCarrito;
+  }
+
+  eliminar(id: number) {
+    this.cartService.removeFromCart(id);
   }
 }
