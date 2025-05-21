@@ -3,17 +3,20 @@
     <h1 class="main-title">NOVA AUTO</h1>
     <h2 class="subtitle">— TU COCHE, TU ELECCIÓN —</h2>
   </header>
+
   <div class="promo-banner">
     <div class="promo-box">
       <p class="promo-text">¡Visita nuestra página web y descubre increíbles ofertas en coches! 🚗</p>
     </div>
   </div>
-<div class="pagina-inicio-container">
+
   <div class="banner">
     <img src="assets/images/banner.jpg" alt="Banner">
   </div>
 
   <div class="filtro-container">
+
+    <!-- Marca -->
     <div class="dropdown">
       <button class="dropdown-btn">Marca ▼</button>
       <div class="dropdown-content">
@@ -23,6 +26,9 @@
       </div>
     </div>
 
+    
+
+    <!-- Texto libre -->
     <div class="wave-group">
       <input required type="text" class="input" [(ngModel)]="searchQuery">
       <span class="bar"></span>
@@ -35,19 +41,50 @@
         <span class="label-char" style="--index: 5">r</span>
       </label>
     </div>
-
-    <div class="dropdown">
-      <button class="dropdown-btn">Modelo ▼</button>
-      <div class="dropdown-content">
-        <label *ngFor="let model of models">
-          <input type="checkbox" (change)="toggleSelection(model, 'model')"> {{ model }}
-        </label>
-      </div>
-    </div>
-  </div>
-
-  <div class="search-container">
-    <button (click)="searchCars()" class="search-btn">Ver coches disponibles</button>
+<!-- Modelo -->
+<div class="dropdown">
+  <button class="dropdown-btn">Modelo ▼</button>
+  <div class="dropdown-content">
+    <label *ngFor="let model of models">
+      <input type="checkbox" (change)="toggleSelection(model, 'model')"> {{ model }}
+    </label>
   </div>
 </div>
+    
 
+    <!-- Botón de búsqueda -->
+    <div class="search-container">
+      <button (click)="searchCars()" class="search-btn">Ver coches disponibles</button>
+    </div>
+
+  </div>
+
+  <div class="car-slider-container">
+    <button class="slider-btn left" (click)="scrollSlider(-1)">←</button>
+  
+    <div class="car-slider" #slider>
+      <div class="car-slider-item" *ngFor="let car of filteredCars">
+        <app-car-card
+          [carImage]="car.imagen"
+          [vehicleName]="car.marca + ' ' + car.modelo"
+          [kilometers]="car.kilometraje"
+          [power]="car.year"
+          [price]="car.precio"
+          (click)="verDetalles(car)">
+        </app-car-card>
+      </div>
+    </div>
+  
+    <button class="slider-btn right" (click)="scrollSlider(1)">→</button>
+   
+    
+  </div>
+  <div class="ver-todos-container">
+    <button class="ver-todos-btn" (click)="irAResultados()">Ver todos</button>
+  </div>
+    
+    
+    
+  
+
+</div>

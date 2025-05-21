@@ -1,66 +1,161 @@
 .resultados-container {
-    display: flex;
-    gap: 20px;
-    padding: 20px;
-    justify-content: center;
-  }
-  
-  /* Estilos del panel lateral */
-  .filter-panel {
-    width: 250px;
-  }
-  
-  .filter-box {
-    background: #ffcdd2;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  }
-  
-  .search-bar {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .filter-options label {
-    display: block;
-    margin: 10px 0;
-  }
-  
-  .show-results-btn {
-    width: 100%;
-    padding: 10px;
-    background-color: red;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  .reset-btn {
-    width: 100%;
-    padding: 5px;
-    background-color: transparent;
-    border: none;
-    color: black;
-    font-size: 14px;
-    cursor: pointer;
-    margin-top: 5px;
-  }
-  
-  /* Estilos de la lista de coches */
-  .cars-list {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  .cars-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1rem;
-    padding: 1rem;
-  }
-  
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  justify-content: center;
+}
+
+.filter-panel {
+  width: 250px;
+}
+
+.filter-box {
+  background: #ffcdd2;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.wave-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.wave-group .input {
+  font-size: 16px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #e53935;
+  background: transparent;
+}
+
+.wave-group .input:focus {
+  outline: none;
+}
+
+.wave-group .label {
+  color: #e53935;
+  font-size: 18px;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  display: flex;
+}
+
+.wave-group .label-char {
+  transition: 0.2s ease all;
+  transition-delay: calc(var(--index) * .05s);
+}
+
+.wave-group .input:focus ~ .label .label-char,
+.wave-group .input:valid ~ .label .label-char {
+  transform: translateY(-20px);
+  font-size: 14px;
+  color: #e53935;
+}
+
+.wave-group .bar {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.wave-group .bar:before,
+.wave-group .bar:after {
+  content: '';
+  height: 2px;
+  width: 0;
+  bottom: 1px;
+  position: absolute;
+  background: #e53935;
+  transition: 0.2s ease all;
+}
+
+.wave-group .bar:before {
+  left: 50%;
+}
+
+.wave-group .bar:after {
+  right: 50%;
+}
+
+.wave-group .input:focus ~ .bar:before,
+.wave-group .input:focus ~ .bar:after {
+  width: 50%;
+}
+
+.filter-options label {
+  display: block;
+  margin: 10px 0;
+}
+
+.show-results-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.reset-btn {
+  width: 100%;
+  padding: 5px;
+  background-color: transparent;
+  border: none;
+  color: black;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+.cars-list {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+  align-items: center;
+}
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.pagination-controls button {
+  padding: 8px 12px;
+  background-color: white;
+  border: 2px solid #e53935;
+  border-radius: 5px;
+  color: #e53935;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pagination-controls button:hover {
+  background-color: #e53935;
+  color: white;
+}
+
+.pagination-controls button.active {
+  background-color: #e53935;
+  color: white;
+  pointer-events: none;
+}

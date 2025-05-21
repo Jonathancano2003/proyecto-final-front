@@ -1,37 +1,27 @@
 <div class="resultados-container">
-
   <aside class="filter-panel">
     <div class="filter-box">
-      <div class="search-bar">
-        <span>🔍 <strong>Search</strong></span>
-      </div>
-
-      <div class="filter-options">
-        <label>
-          <input type="checkbox" [(ngModel)]="filters.allCategories"> All categories
-        </label>
-        <label>
-          <input type="checkbox" [(ngModel)]="filters.nuevos"> Nuevos
-        </label>
-        <label>
-          <input type="checkbox" [(ngModel)]="filters.ceroKm"> Cero Km
-        </label>
-        <label>
-          <input type="checkbox" [(ngModel)]="filters.novedades"> Novedades
-        </label>
-        <label>
-          <input type="checkbox" [(ngModel)]="filters.ofertas"> Ofertas
+      <div class="wave-group">
+        <input required type="text" class="input" [(ngModel)]="searchQuery" (input)="applyFilters()" />
+        <span class="bar"></span>
+        <label class="label">
+          <span class="label-char" style="--index: 0">B</span>
+          <span class="label-char" style="--index: 1">u</span>
+          <span class="label-char" style="--index: 2">s</span>
+          <span class="label-char" style="--index: 3">c</span>
+          <span class="label-char" style="--index: 4">a</span>
+          <span class="label-char" style="--index: 5">r</span>
         </label>
       </div>
 
-      <button class="show-results-btn">Show {{ cars.length }} results</button>
-      <button class="reset-btn" (click)="resetFilters()">Reset</button>
+      <button class="show-results-btn">Mostrando {{ filteredCars.length }} resultados</button>
+      <button class="reset-btn" (click)="resetSearch()">Reiniciar</button>
     </div>
   </aside>
 
   <section class="cars-list">
     <app-car-card
-      *ngFor="let car of cars"
+      *ngFor="let car of filteredCars"
       [carImage]="car.imagen"
       [vehicleName]="car.marca + ' ' + car.modelo"
       [kilometers]="car.kilometraje"
@@ -40,6 +30,15 @@
       (click)="selectCar(car)">
     </app-car-card>
   </section>
-  
+</div>
 
+<!-- paginación -->
+<div class="pagination" *ngIf="totalPages > 1">
+  <button (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1">Anterior</button>
+  <button *ngFor="let page of [].constructor(totalPages); let i = index"
+          (click)="changePage(i + 1)"
+          [class.active]="currentPage === i + 1">
+    {{ i + 1 }}
+  </button>
+  <button (click)="changePage(currentPage + 1)" [disabled]="currentPage === totalPages">Siguiente</button>
 </div>
