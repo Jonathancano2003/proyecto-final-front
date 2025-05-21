@@ -1,17 +1,45 @@
 <nav class="navbar">
-    <div class="nav-container">
-      <!-- Logo -->
-      <a href="#" class="logo">
-        <img src="assets/images/NovaAutoLogo2.png" alt="NovaAuto Logo" class="logo-img" />
+  <div class="nav-container">
+
+    <!-- Logo -->
+    <a routerLink="/inicio" class="logo">
+      <img src="assets/images/NovaAutoLogo2.png" alt="NovaAuto Logo" class="logo-img" />
+    </a>
+
+    <div class="nav-actions">
+
+      <!-- Botón de Perfil -->
+      <a routerLink="/profile">
+        <button class="btn-profile">Perfil</button>
       </a>
-  
-      <div class="profile-btn">
-        <a href="/profile">
-          <button class="btn-profile">Perfil</button>
-        </a>
+
+      <!-- Carrito -->
+      <div class="cart-container" (mouseenter)="mostrarCarrito = true" (mouseleave)="mostrarCarrito = false">
+        <button class="btn-cart">
+          🛒 <span class="badge">{{ carrito.length }}</span>
+        </button>
+
+        <!-- Dropdown del carrito -->
+        <div class="cart-dropdown" *ngIf="mostrarCarrito && carrito.length > 0">
+          <div *ngFor="let car of carrito" class="cart-item">
+            <span>{{ car.marca }} {{ car.modelo }}</span>
+            <span class="precio">{{ car.precio | currency:'EUR' }}</span>
+          </div>
+
+          <hr />
+
+          <!-- Total del carrito -->
+          <div class="cart-total">
+            <strong>Total:</strong>
+            <span>{{ totalCarrito | currency:'EUR' }}</span>
+          </div>
+
+          <div class="text-end">
+            <a routerLink="/carrito" class="ver-carrito-btn">Ver carrito</a>
+          </div>
+        </div>
       </div>
 
-      
     </div>
-  </nav>
-  
+  </div>
+</nav>

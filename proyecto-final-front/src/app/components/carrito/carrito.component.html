@@ -1,0 +1,42 @@
+<div class="card shadow-sm p-4 rounded">
+    <div class="d-flex justify-content-between align-items-center bg-light p-3 rounded mb-3">
+      <div>
+        <h3 class="mb-0">Carrito de coches</h3>
+      </div>
+      <button *ngIf="carrito.length > 0" class="btn btn-outline-danger" (click)="vaciarCarrito()">
+        Vaciar carrito
+      </button>
+    </div>
+  
+    <div *ngIf="carrito.length === 0" class="text-center text-muted mt-4">
+      <p>El carrito está vacío.</p>
+    </div>
+  
+    <div class="row g-4" *ngIf="carrito.length > 0">
+      <div class="col-md-6 col-lg-4" *ngFor="let car of carrito">
+        <div class="card h-100 shadow-sm">
+          <img
+            *ngIf="car.imagen"
+            [src]="car.imagen"
+            class="card-img-top"
+            alt="{{ car.modelo }}"
+            style="max-height: 200px; object-fit: cover;"
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{ car.marca }} {{ car.modelo }}</h5>
+            <p class="card-text">
+              <strong>Año:</strong> {{ car.year }}<br>
+              <strong>Kilometraje:</strong> {{ car.kilometraje }} km<br>
+              <strong>Precio:</strong> {{ car.precio | currency:'EUR' }}
+            </p>
+            <button class="btn btn-danger btn-sm w-100" (click)="eliminar(car.id)">Eliminar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div *ngIf="carrito.length > 0" class="text-end mt-4">
+      <h5>Total a pagar: <span class="text-success">{{ total | currency:'EUR' }}</span></h5>
+    </div>
+  </div>
+  
