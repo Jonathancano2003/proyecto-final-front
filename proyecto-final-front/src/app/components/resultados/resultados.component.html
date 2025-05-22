@@ -33,12 +33,25 @@
 </div>
 
 <!-- paginación -->
-<div class="pagination" *ngIf="totalPages > 1">
-  <button (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1">Anterior</button>
+<div class="pagination-controls" *ngIf="totalPages > 1">
+  <button class="footer-btn"
+          (click)="changePage(currentPage - 1)"
+          [disabled]="currentPage === 1"
+          [ngClass]="{ 'disabled-btn': currentPage === 1 }">
+    Anterior
+  </button>
+
   <button *ngFor="let page of [].constructor(totalPages); let i = index"
-          (click)="changePage(i + 1)"
-          [class.active]="currentPage === i + 1">
+          class="footer-btn"
+          [ngClass]="{ 'active': currentPage === i + 1 }"
+          (click)="changePage(i + 1)">
     {{ i + 1 }}
   </button>
-  <button (click)="changePage(currentPage + 1)" [disabled]="currentPage === totalPages">Siguiente</button>
+
+  <button class="footer-btn"
+          (click)="changePage(currentPage + 1)"
+          [disabled]="currentPage === totalPages"
+          [ngClass]="{ 'disabled-btn': currentPage === totalPages }">
+    Siguiente
+  </button>
 </div>

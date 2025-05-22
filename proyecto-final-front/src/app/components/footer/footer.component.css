@@ -1,71 +1,49 @@
-
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-}
-
-
-.main-content {
-    flex: 1;
-}
-
-
 .footer {
     background: rgba(0, 0, 0, 0.9);
     backdrop-filter: blur(8px);
     padding: 20px 0;
-    position: relative;
     box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3);
     color: white;
     margin-top: auto;
-}
-
-.footer-container {
+    position: relative;
+    width: 100%;
+    z-index: 999;
+  }
+  
+  .footer-container {
     width: 90%;
     max-width: 1200px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 0 auto;
-}
-
-.footer-logo {
-    font-size: 24px;
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: color 0.3s ease;
-}
-
-.footer-logo:hover {
-    color: #e53935;
-}
-
-.footer-links {
+  }
+  
+  .footer-actions {
     display: flex;
+    align-items: center;
     gap: 20px;
-}
-
-.footer-btn {
-    display: inline-block;
-    padding: 0.9rem 1.8rem;
+  }
+  
+  
+  .footer-btn {
     font-size: 16px;
     font-weight: 700;
     color: white;
-    border: 3px solid #e53935;
-    cursor: pointer;
-    position: relative;
     background-color: transparent;
+    border: 3px solid #e53935;
+    padding: 0.8rem 1.6rem;
+    border-radius: 8px;
+    cursor: pointer;
     text-decoration: none;
+    font-family: inherit;
+    position: relative;
     overflow: hidden;
     z-index: 1;
-    border-radius: 8px;
     transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.footer-btn::before {
+  }
+  
+  .footer-btn::before {
     content: "";
     position: absolute;
     left: 0;
@@ -76,14 +54,34 @@ html, body {
     transform: translateX(-100%);
     transition: all 0.3s;
     z-index: -1;
-}
-
-.footer-btn:hover {
-    background: #c62828;
-    transform: scale(1.1);
+  }
+  
+  .footer-btn:hover {
+    transform: scale(1.05);
     box-shadow: 0 6px 12px rgba(229, 57, 53, 0.5);
-}
-
-.footer-btn:hover::before {
+    color: white;
+  }
+  
+  .footer-btn:hover::before {
     transform: translateX(0);
-}
+  }
+  
+  .footer .logo-img {
+    height: 60px;
+    width: auto;
+  }
+  
+
+  @media (max-width: 768px) {
+    .footer-container {
+      flex-direction: column;
+      gap: 20px;
+      text-align: center;
+    }
+  
+    .footer-actions {
+      flex-direction: column;
+      gap: 12px;
+    }
+  }
+  

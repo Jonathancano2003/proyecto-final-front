@@ -335,3 +335,36 @@ app-car-card {
 .ver-todos-btn:hover {
   background-color: #b71c1c;
 }
+.promo-banner {
+  width: 100%;
+  background-color: #e53935;
+  padding: 10px 0;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.promo-text-wrapper {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.promo-text {
+  display: inline-block;
+  font-size: 16px;
+  color: white;
+  font-weight: bold;
+  animation: scroll-right 30s linear infinite;
+  padding-right: 100%; 
+}
+
+@keyframes scroll-right {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+.promo-banner {
+  margin-top: 20px; 
+}

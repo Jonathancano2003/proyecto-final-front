@@ -84,3 +84,39 @@ button:active {
   box-shadow: 0.2em 0.2em 0.3em rgba(0, 0, 0, 0.3);
   transform: translate(0.1em, 0.1em);
 }
+.car-detail-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.btn-fav, .btn-cart {
+  flex: 0 0 48%;
+  position: relative;
+  font-size: 1.1em;
+  padding: 0.7em 1.4em;
+  text-decoration: none;
+  border: none;
+  border-radius: 0.5em;
+  color: #fff;
+  box-shadow: 0.5em 0.5em 0.5em rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-fav {
+  background-color: #8e44ad;
+}
+
+.btn-cart {
+  background-color: #ff002f;
+}
+
+.btn-fav:hover, .btn-cart:hover {
+  transform: scale(1.05);
+}
+
+.btn-fav:active, .btn-cart:active {
+  transform: translate(1px, 1px);
+  box-shadow: 0.2em 0.2em 0.3em rgba(0, 0, 0, 0.3);
+}
+

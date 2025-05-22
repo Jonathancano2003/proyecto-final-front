@@ -11,7 +11,10 @@
     <p><strong>Descripción:</strong> {{ car.descripcion }}</p>
   </div>
 
-  <button (click)="guardarEnFavoritos()"><b>Favoritos!</b></button>
-  <button (click)="anadirAlCarrito()" style="margin-top: 10px;"><b>Añadir al carrito</b></button>
+  <div class="car-detail-actions">
+    <button class="btn-fav" (click)="guardarEnFavoritos()"><b>❤️ Favoritos</b></button>
+    <button class="btn-cart" (click)="anadirAlCarrito()"><b>🛒 Añadir al carrito</b></button>
+  </div>
+  
 
 </div>
