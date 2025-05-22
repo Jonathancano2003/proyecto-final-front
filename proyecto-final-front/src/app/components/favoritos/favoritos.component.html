@@ -1,11 +1,33 @@
-<section class="cars-list">
-  <app-car-card
-    *ngFor="let car of favoritos"
-    [carImage]="car.imagen"
-    [vehicleName]="car.marca + ' ' + car.modelo"
-    [kilometers]="car.kilometraje"
-    [power]="car.year"
-    [price]="car.precio"
-    (click)="verDetalles(car)"
-  ></app-car-card>
-</section>
+<div class="card shadow-sm p-4 rounded">
+  <div class="d-flex justify-content-between align-items-center bg-light p-3 rounded mb-3">
+    <div>
+      <h3 class="mb-0">Tus coches favoritos</h3>
+    </div>
+  </div>
+
+  <div *ngIf="favoritos.length === 0" class="text-center text-muted mt-4">
+    <p>No tienes coches en favoritos.</p>
+  </div>
+
+  <div class="row g-4" *ngIf="favoritos.length > 0">
+    <div class="col-md-6 col-lg-4" *ngFor="let car of favoritos">
+      <div class="card h-100 shadow-sm">
+        <img
+          *ngIf="car.imagen"
+          [src]="car.imagen"
+          class="card-img-top"
+          alt="{{ car.modelo }}"
+          style="max-height: 200px; object-fit: cover;"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ car.marca }} {{ car.modelo }}</h5>
+          <p class="card-text">
+            <strong>Año:</strong> {{ car.year }}<br />
+            <strong>Kilometraje:</strong> {{ car.kilometraje }} km<br />
+            <strong>Precio:</strong> {{ car.precio | currency:'EUR' }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
