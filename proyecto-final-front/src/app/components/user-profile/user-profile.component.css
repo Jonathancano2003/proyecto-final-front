@@ -80,4 +80,14 @@
   .guardar:hover {
     background-color: #0056b3;
   }
+  .ver-favoritos {
+    background-color: white;
+    color: #007bff;
+    border: 2px solid #007bff;
+  }
+  
+  .ver-favoritos:hover {
+    background-color: #007bff;
+    color: white;
+  }
   
