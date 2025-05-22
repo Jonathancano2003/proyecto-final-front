@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { VehiculosService } from '../../services/vehiculos.service';
 import { FavoritosService } from '../../services/favoritos.service';
 import { AuthService } from '../../services/auth.service';
-import { CartService } from '../../services/cart.service'; // 👈 NUEVO
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-coche-select',
@@ -14,6 +14,7 @@ import { CartService } from '../../services/cart.service'; // 👈 NUEVO
 })
 export class CocheSelectComponent implements OnInit {
   car: any;
+  favoritosIds = new Set<number>();
 
   constructor(
     private vehiculosService: VehiculosService,
@@ -25,7 +26,6 @@ export class CocheSelectComponent implements OnInit {
   ngOnInit() {
     this.car = this.vehiculosService.getSelectedCar();
 
-    // Fallback si no hay coche (por ejemplo si se entra directo a la ruta)
     if (!this.car) {
       this.car = {
         marca: 'BMW',
@@ -37,7 +37,15 @@ export class CocheSelectComponent implements OnInit {
         imagen: 'assets/images/bmw-serie3.jpg'
       };
     }
-    
+
+    const usuario = this.authService.getUsuarioActual();
+    if (!usuario) return;
+    this.favoritosService.obtenerFavoritosPorUsuario(usuario.id).subscribe({
+      next: (favoritos) => {
+        this.favoritosIds = new Set(favoritos.map(c => c.id)); 
+      },
+      error: (err) => console.error('Error al cargar favoritos:', err)
+    });
   }
 
   guardarEnFavoritos() {
@@ -47,15 +55,24 @@ export class CocheSelectComponent implements OnInit {
       return;
     }
 
+   
+    if (this.favoritosIds.has(this.car.id)) {
+      alert('⚠️ Este coche ya está en tus favoritos');
+      return;
+    }
+
     this.favoritosService.guardarFavorito(usuario.id, this.car.id).subscribe({
-      next: () => alert('¡Coche añadido a favoritos!'),
+      next: () => {
+        this.favoritosIds.add(this.car.id); 
+        alert('✅ Coche añadido a favoritos');
+      },
       error: (err) => console.error('Error al guardar favorito:', err)
     });
   }
-    // ✅ NUEVO MÉTODO
-    anadirAlCarrito() {
-      if (!this.car) return;
-      this.cartService.addToCart(this.car);
-      alert('✅ Coche añadido al carrito');
-    }
+
+  anadirAlCarrito() {
+    if (!this.car) return;
+    this.cartService.addToCart(this.car);
+    alert('✅ Coche añadido al carrito');
+  }
 }
