@@ -1,7 +1,15 @@
-<app-card-anuncio
-  *ngFor="let coche of coches"
-  [anuncio]="coche"
-  (eliminar)="onEliminar(coche)"
-  (editar)="onEditar(coche)"
-  (visualizar)="onVisualizar(coche)"
-></app-card-anuncio>
+<div class="anuncio-grid">
+  <app-card-anuncio
+    *ngFor="let coche of cochesPaginados"
+    [anuncio]="coche"
+    (eliminar)="onEliminar(coche)"
+    (editar)="onEditar(coche)"
+    (visualizar)="onVisualizar(coche)">
+  </app-card-anuncio>
+</div>
+
+<div class="paginacion">
+  <button class="btn btn-secondary" (click)="anteriorPagina()">Anterior</button>
+  <span class="pagina-actual">Página {{ page }}</span>
+  <button class="btn btn-secondary" (click)="siguientePagina()">Siguiente</button>
+</div>

@@ -10,9 +10,13 @@ import { Router } from '@angular/router';
   standalone: true,
   imports: [CommonModule, CardAnuncioComponent],
   templateUrl: './anuncios.component.html',
+  styleUrls: ['./anuncios.component.css']
 })
 export class AnunciosComponent implements OnInit {
   coches: Coche[] = [];
+  page: number = 1;
+  pageSize: number = 10;
+
   private vehiculosService = inject(VehiculosService);
   private router = inject(Router);
 
@@ -29,6 +33,23 @@ export class AnunciosComponent implements OnInit {
         console.error('Error al obtener vehículos:', err);
       }
     });
+  }
+
+  get cochesPaginados(): Coche[] {
+    const start = (this.page - 1) * this.pageSize;
+    return this.coches.slice(start, start + this.pageSize);
+  }
+
+  siguientePagina() {
+    if ((this.page * this.pageSize) < this.coches.length) {
+      this.page++;
+    }
+  }
+
+  anteriorPagina() {
+    if (this.page > 1) {
+      this.page--;
+    }
   }
 
   onEliminar(coche: Coche) {
