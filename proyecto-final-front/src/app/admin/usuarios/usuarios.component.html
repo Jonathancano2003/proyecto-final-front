@@ -5,9 +5,7 @@
     <app-card-usuario
       *ngFor="let usuario of usuarios"
       [usuario]="usuario"
-      (eliminar)="onEliminar(usuario)"
-      (editar)="onEditar(usuario)"
-      (visualizar)="onVisualizar(usuario)">
+      (eliminar)="onEliminar(usuario)">
     </app-card-usuario>
   </div>
 </div>
