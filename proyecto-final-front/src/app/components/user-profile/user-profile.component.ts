@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import { UsuariosService } from '../../services/usuarios.service';
+
 @Component({
   selector: 'app-user-profile',
   standalone: true,
@@ -16,15 +18,14 @@ export class UserProfileComponent implements OnInit {
 
   private fb = inject(FormBuilder);
   private authService = inject(AuthService);
-private router = inject(Router);
+  private usuariosService = inject(UsuariosService);
+  private router = inject(Router);
+
   constructor() {
     this.userProfileForm = this.fb.group({
       nombre: [''],
-      username: [''],
       email: [''],
-      password: [''],
-      telefono: [''],
-      ciudad: ['']
+      contraseña: ['']
     });
   }
 
@@ -33,21 +34,50 @@ private router = inject(Router);
     if (usuario) {
       this.userProfileForm.patchValue({
         nombre: usuario.nombre,
-        username: usuario.username || '',
-        email: usuario.email,
-        telefono: usuario.telefono || '',
-        ciudad: usuario.ciudad || ''
+        email: usuario.email
       });
     }
   }
 
   onSubmit() {
-    console.log(this.userProfileForm.value);
+    const usuarioActual = this.authService.getUsuarioActual();
+
+    if (usuarioActual?.id) {
+      const datosActualizados = this.userProfileForm.value;
+
+      this.usuariosService.actualizarUsuario(usuarioActual.id, datosActualizados)
+        .subscribe({
+          next: () => {
+            alert('Perfil actualizado correctamente');
+            this.mostrarFormulario = false;
+          },
+          error: err => {
+            console.error('Error al actualizar perfil', err);
+            alert('Hubo un error al actualizar el perfil');
+          }
+        });
+    }
   }
+
   onDelete() {
-    // Lógica futura para eliminar el perfil del usuario
-    console.log('Eliminar perfil (falta implementar)');
+    const usuarioActual = this.authService.getUsuarioActual();
+
+    if (usuarioActual?.id && confirm('¿Estás seguro de que quieres eliminar tu perfil?')) {
+      this.usuariosService.eliminarUsuario(usuarioActual.id)
+        .subscribe({
+          next: () => {
+            alert('Perfil eliminado correctamente');
+            this.authService.logout(); // si tienes este método
+            this.router.navigate(['/']);
+          },
+          error: err => {
+            console.error('Error al eliminar perfil', err);
+            alert('Hubo un error al eliminar el perfil');
+          }
+        });
+    }
   }
+
   irAFavoritos() {
     this.router.navigate(['/favoritos']);
   }

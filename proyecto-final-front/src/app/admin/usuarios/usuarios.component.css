@@ -1,15 +1,24 @@
 :host {
   display: flex;
   flex-direction: column;
-  flex: 1; /* Esto permite al host ocupar el espacio disponible */
+  flex: 1;
 }
 
 .usuario-container {
-  flex: 1; /* Esto es CLAVE para empujar el footer abajo */
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px;
   box-sizing: border-box;
   width: 100%;
+}
+
+.usuarios-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
 }

@@ -1,55 +1,38 @@
 <div class="profile-container">
-    <div class="icono-usuario">👤</div>
-  
-    <h2>{{ userProfileForm.get('nombre')?.value }}</h2>
-    <p>{{ userProfileForm.get('email')?.value }}</p>
-  
-    <div class="botones">
-      <button (click)="mostrarFormulario = !mostrarFormulario" class="btn actualizar">
-        {{ mostrarFormulario ? 'Cancelar' : 'Actualizar perfil' }}
-      </button>
-  
-      <button class="btn eliminar" (click)="onDelete()">
-        Eliminar perfil
-      </button>
-      <button class="btn ver-favoritos" (click)="irAFavoritos()">
-        Ver favoritos
-      </button>
-    
-    </div>
-  
-    <form *ngIf="mostrarFormulario" [formGroup]="userProfileForm" (ngSubmit)="onSubmit()" class="formulario-perfil">
-      <label>
-        Nombre:
-        <input type="text" formControlName="nombre" />
-      </label>
-  
-      <label>
-        Username:
-        <input type="text" formControlName="username" />
-      </label>
-  
-      <label>
-        Email:
-        <input type="email" formControlName="email" />
-      </label>
-  
-      <label>
-        Teléfono:
-        <input type="text" formControlName="telefono" />
-      </label>
-  
-      <label>
-        Ciudad:
-        <input type="text" formControlName="ciudad" />
-      </label>
-  
-      <label>
-        Contraseña:
-        <input type="password" formControlName="password" />
-      </label>
-  
-      <button type="submit" class="btn guardar">Guardar cambios</button>
-    </form>
+  <div class="icono-usuario">👤</div>
+
+  <h2>{{ userProfileForm.get('nombre')?.value }}</h2>
+  <p>{{ userProfileForm.get('email')?.value }}</p>
+
+  <div class="botones">
+    <button (click)="mostrarFormulario = !mostrarFormulario" class="btn actualizar">
+      {{ mostrarFormulario ? 'Cancelar' : 'Actualizar perfil' }}
+    </button>
+
+    <button class="btn eliminar" (click)="onDelete()">
+      Eliminar perfil
+    </button>
+    <button class="btn ver-favoritos" (click)="irAFavoritos()">
+      Ver favoritos
+    </button>
   </div>
-  
+
+  <form *ngIf="mostrarFormulario" [formGroup]="userProfileForm" (ngSubmit)="onSubmit()" class="formulario-perfil">
+    <label>
+      Nombre:
+      <input type="text" formControlName="nombre" />
+    </label>
+
+    <label>
+      Email:
+      <input type="email" formControlName="email" />
+    </label>
+
+    <label>
+      Contraseña:
+      <input type="password" formControlName="contraseña" />
+    </label>
+
+    <button type="submit" class="btn guardar">Guardar cambios</button>
+  </form>
+</div>

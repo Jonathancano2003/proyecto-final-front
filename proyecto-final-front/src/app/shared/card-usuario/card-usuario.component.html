@@ -3,13 +3,13 @@
     {{ usuario.id }}.- {{ usuario.nombre }}
   </div>
   <div class="d-flex gap-2">
-    <button class="btn btn-danger d-flex align-items-center gap-1">
+    <button class="btn btn-danger d-flex align-items-center gap-1" (click)="onEliminar()">
       <i class="bi bi-trash"></i> <span>Eliminar</span>
     </button>
-    <button class="btn btn-warning d-flex align-items-center gap-1 text-white">
+    <button class="btn btn-warning d-flex align-items-center gap-1 text-white" (click)="onEditar()">
       <i class="bi bi-pencil"></i> <span>Editar</span>
     </button>
-    <button class="btn btn-success d-flex align-items-center gap-1">
+    <button class="btn btn-success d-flex align-items-center gap-1" (click)="onVisualizar()">
       <i class="bi bi-eye"></i> <span>Visualizar</span>
     </button>
   </div>

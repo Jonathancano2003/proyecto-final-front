@@ -14,6 +14,7 @@ import { EditarCocheComponent } from './admin/anuncios/editar-coche/editar-coche
 import { PoliticaPrivacidadComponent } from './politica-privacidad/politica-privacidad.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
+import { UsuariosComponent } from './admin/usuarios/usuarios.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -27,7 +28,9 @@ export const routes: Routes = [
   { path: 'coche-select', component: CocheSelectComponent },
   { path: 'favoritos', component: FavoritosComponent },
   { path: 'carrito', component: CarritoComponent },
+  { path: 'admin/usuarios', component: UsuariosComponent },
 
+  { path: 'admin/usuarios/:id/editar', component: UserProfileComponent },
 
   // ADMIN
   { path: 'admin/anuncios', component: AnunciosComponent },

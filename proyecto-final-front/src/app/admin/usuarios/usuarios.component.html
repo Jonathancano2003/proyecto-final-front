@@ -1,6 +1,13 @@
-<div class="usuario-container">
-  <app-card-usuario
-    *ngFor="let usuario of usuarios"
-    [usuario]="usuario">
-  </app-card-usuario>
+<div class="usuarios-container">
+  <h2>Usuarios registrados</h2>
+
+  <div class="cards-wrapper">
+    <app-card-usuario
+      *ngFor="let usuario of usuarios"
+      [usuario]="usuario"
+      (eliminar)="onEliminar(usuario)"
+      (editar)="onEditar(usuario)"
+      (visualizar)="onVisualizar(usuario)">
+    </app-card-usuario>
+  </div>
 </div>
