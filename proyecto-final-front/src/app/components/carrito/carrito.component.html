@@ -38,5 +38,8 @@
     <div *ngIf="carrito.length > 0" class="text-end mt-4">
       <h5>Total a pagar: <span class="text-success">{{ total | currency:'EUR' }}</span></h5>
     </div>
+    <div *ngIf="carrito.length > 0" class="text-end mt-4">
+      <button class="btn btn-success mt-3" (click)="irAPago()">Proceder al pago</button>
+    </div>
   </div>
   

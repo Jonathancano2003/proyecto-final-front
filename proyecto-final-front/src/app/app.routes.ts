@@ -15,6 +15,7 @@ import { PoliticaPrivacidadComponent } from './politica-privacidad/politica-priv
 import { AboutUsComponent } from './about-us/about-us.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
 import { UsuariosComponent } from './admin/usuarios/usuarios.component';
+import { PagoComponent } from './components/pago/pago.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -29,7 +30,10 @@ export const routes: Routes = [
   { path: 'favoritos', component: FavoritosComponent },
   { path: 'carrito', component: CarritoComponent },
   { path: 'admin/usuarios', component: UsuariosComponent },
-
+  {
+    path: 'pago',
+    loadComponent: () => import('./components/pago/pago.component').then(m => m.PagoComponent)
+  },
   { path: 'admin/usuarios/:id/editar', component: UserProfileComponent },
 
   // ADMIN
