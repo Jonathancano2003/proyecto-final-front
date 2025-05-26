@@ -52,16 +52,33 @@ export class AnunciosComponent implements OnInit {
     }
   }
 
+  // onEliminar(coche: Coche) {
+  //   this.vehiculosService.deleteCoche(coche.id).subscribe({
+  //     next: () => {
+  //       this.coches = this.coches.filter(c => c.id !== coche.id);
+  //     },
+  //     error: (err) => {
+  //       console.error('Error al eliminar coche:', err);
+  //     }
+  //   });
+  // }
   onEliminar(coche: Coche) {
+    const confirmacion = confirm(`¿Estás seguro de que deseas eliminar el coche ${coche.marca} ${coche.modelo}? Esta acción no se puede deshacer.`);
+    
+    if (!confirmacion) return;
+  
     this.vehiculosService.deleteCoche(coche.id).subscribe({
       next: () => {
         this.coches = this.coches.filter(c => c.id !== coche.id);
+        alert('✅ Coche eliminado correctamente');
       },
       error: (err) => {
         console.error('Error al eliminar coche:', err);
+        alert('❌ Error al eliminar el coche. Intenta de nuevo.');
       }
     });
   }
+  
 
   onEditar(coche: Coche) {
     this.vehiculosService.setSelectedCar(coche);
