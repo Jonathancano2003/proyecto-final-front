@@ -1,0 +1,110 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto:wght@400;700&display=swap');
+
+
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  background-image: url('/assets/images/background.gif');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  font-family: 'Poppins', sans-serif;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+
+.pago-container {
+  width: 100%;
+  max-width: 400px;
+  padding: 30px;
+  background: rgba(94, 89, 89, 0.8); 
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  color: #fff;
+}
+
+
+.pago-container h2 {
+  font-size: 28px;
+  font-weight: 600;
+  color: #ff0000;
+  margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+.form-pago {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-pago label {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  font-weight: 600;
+  color: #ff0000;
+  font-size: 0.9rem;
+}
+
+.form-pago input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #333;
+  font-family: 'Roboto', sans-serif;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.form-pago input:focus {
+  border-color: #ff0000;
+  background-color: #fff;
+  outline: none;
+}
+
+
+.btn-pagar {
+  width: 100%;
+  padding: 12px;
+  background-color: #ff0000;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+  margin-top: 20px;
+  text-transform: uppercase;
+  font-family: 'Roboto', sans-serif;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-pagar:hover {
+  background-color: #c62828;
+  transform: scale(1.03);
+}
+
+
+@media (max-width: 576px) {
+  .pago-container {
+    padding: 20px;
+  }
+
+  .form-pago input {
+    padding: 10px;
+  }
+
+  .btn-pagar {
+    padding: 10px;
+  }
+}

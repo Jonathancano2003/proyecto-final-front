@@ -1,0 +1,28 @@
+<div class="pago-container">
+    <h2>Pago Nova Auto</h2>
+  
+    <form (ngSubmit)="pagar()" class="form-pago">
+      <label>
+        Nombre en la tarjeta:
+        <input type="text" [(ngModel)]="nombre" name="nombre" required />
+      </label>
+  
+      <label>
+        Número de tarjeta:
+        <input type="text" [(ngModel)]="tarjeta" name="tarjeta" maxlength="16" required />
+      </label>
+  
+      <label>
+        Fecha de expiración:
+        <input type="text" [(ngModel)]="expiracion" name="expiracion" placeholder="MM/AA" required />
+      </label>
+  
+      <label>
+        CVV:
+        <input type="text" [(ngModel)]="cvv" name="cvv" maxlength="3" required />
+      </label>
+  
+      <button type="submit" class="btn-pagar">Pagar ahora</button>
+    </form>
+  </div>
+  
