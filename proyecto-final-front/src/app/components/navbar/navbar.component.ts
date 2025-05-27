@@ -2,8 +2,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CartService } from '../../services/cart.service';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -20,7 +21,11 @@ export class NavbarComponent implements OnInit, OnDestroy {
   totalCarrito: number = 0;
   private cartSub!: Subscription;
 
-  constructor(private cartService: CartService) {}
+  constructor(
+    private cartService: CartService,
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.cartSub = this.cartService.getCartObservable().subscribe((carrito) => {
@@ -34,10 +39,34 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   toggleCarrito() {
+    if (!this.authService.isAuthenticated()) {
+      this.router.navigate(['/login']);
+      return;
+    }
     this.mostrarCarrito = !this.mostrarCarrito;
   }
 
   eliminar(id: number) {
     this.cartService.removeFromCart(id);
+  }
+
+  gestionarLoginLogout() {
+    if (this.authService.isAuthenticated()) {
+      const confirmar = confirm('¿Deseas cerrar sesión?');
+      if (confirmar) {
+        this.authService.logout();
+        this.router.navigate(['/login']);
+      }
+    } else {
+      this.router.navigate(['/login']);
+    }
+  }
+
+  irAlPerfil() {
+    if (!this.authService.isAuthenticated()) {
+      this.router.navigate(['/login']);
+      return;
+    }
+    this.router.navigate(['/perfil']);
   }
 }

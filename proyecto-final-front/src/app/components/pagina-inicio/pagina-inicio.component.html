@@ -19,7 +19,7 @@
       <button class="dropdown-btn">Marca ▼</button>
       <div class="dropdown-content">
         <label *ngFor="let brand of brands">
-          <input type="checkbox" (change)="toggleSelection(brand, 'brand')"> {{ brand }}
+          <input type="checkbox" (change)="toggleSelection(brand, 'brand')"> {{ brand }}          
         </label>
       </div>
     </div>
@@ -55,7 +55,6 @@
       <button (click)="searchCars()" class="search-btn">Ver coches disponibles</button>
     </div>
 
-  </div>
 
   <div class="car-slider-container">
     <button class="slider-btn left" (click)="scrollSlider(-1)">←</button>
@@ -78,7 +77,7 @@
     
   </div>
   <div class="ver-todos-container">
-    <button class="ver-todos-btn" (click)="irAResultados()">Ver todos</button>
+    <button class="ver-todos-btn" (click)="irAResultados()">VER TODOS</button>
   </div>
     
     

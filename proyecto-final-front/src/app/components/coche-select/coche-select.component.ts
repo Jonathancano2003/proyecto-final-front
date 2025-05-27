@@ -4,6 +4,7 @@ import { VehiculosService } from '../../services/vehiculos.service';
 import { FavoritosService } from '../../services/favoritos.service';
 import { AuthService } from '../../services/auth.service';
 import { CartService } from '../../services/cart.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-coche-select',
@@ -20,7 +21,8 @@ export class CocheSelectComponent implements OnInit {
     private vehiculosService: VehiculosService,
     private favoritosService: FavoritosService,
     private authService: AuthService,
-    private cartService: CartService
+    private cartService: CartService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -49,6 +51,11 @@ export class CocheSelectComponent implements OnInit {
   }
 
   guardarEnFavoritos() {
+    if (!this.authService.isAuthenticated()) {
+      this.router.navigate(['/login']);
+      return;
+    }
+
     const usuario = this.authService.getUsuarioActual();
     if (!usuario || !this.car?.id) {
       console.warn('Usuario o coche no definidos.');
@@ -71,6 +78,11 @@ export class CocheSelectComponent implements OnInit {
   }
 
   anadirAlCarrito() {
+    if (!this.authService.isAuthenticated()) {
+      this.router.navigate(['/login']);
+      return;
+    }
+
     if (!this.car) return;
     this.cartService.addToCart(this.car);
     alert('✅ Coche añadido al carrito');
