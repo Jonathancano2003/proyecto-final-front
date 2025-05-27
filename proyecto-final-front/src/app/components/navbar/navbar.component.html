@@ -6,21 +6,18 @@
       <img src="assets/images/NovaAutoLogo2.png" alt="NovaAuto Logo" class="logo-img" />
     </a>
 
-    <div class="nav-actions">
+    <!-- Acciones de navegación solo si está logueado -->
+    <div class="nav-actions" *ngIf="logeado">
 
-      <!-- Botón de Login -->
-      <a>
-        <button class="btn-profile" (click)="gestionarLoginLogout()">
-          <img src="/assets/images/logout.png" alt="Login" class="img-login">
-        </button>
-      </a>
+      <!-- Botón de Login/Logout -->
+      <button class="btn-profile" (click)="gestionarLoginLogout()">
+        <img src="/assets/images/logout.png" alt="Login" class="img-login">
+      </button>
 
       <!-- Botón de Perfil -->
-      <a routerLink="/perfil">
-        <button class="btn-profile" (click)="irAlPerfil()">
-          <img src="/assets/images/usuario2.png" alt="Perfil" class="img-profile">
-        </button>
-      </a>
+      <button class="btn-profile" (click)="irAlPerfil()">
+        <img src="/assets/images/usuario2.png" alt="Perfil" class="img-profile">
+      </button>
 
       <!-- Carrito -->
       <div class="cart-container" (mouseenter)="mostrarCarrito = true" (mouseleave)="mostrarCarrito = false">

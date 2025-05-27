@@ -19,6 +19,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   mostrarCarrito = false;
   carrito: any[] = [];
   totalCarrito: number = 0;
+  logeado: boolean = false;
   private cartSub!: Subscription;
 
   constructor(
@@ -27,16 +28,25 @@ export class NavbarComponent implements OnInit, OnDestroy {
     private router: Router
   ) {}
 
-  ngOnInit(): void {
-    this.cartSub = this.cartService.getCartObservable().subscribe((carrito) => {
-      this.carrito = carrito;
-      this.totalCarrito = carrito.reduce((sum, item) => sum + (item.precio || 0), 0);
-    });
-  }
+ 
+private authSub!: Subscription;
 
-  ngOnDestroy(): void {
-    if (this.cartSub) this.cartSub.unsubscribe();
-  }
+ngOnInit(): void {
+  this.authSub = this.authService.estadoLogin().subscribe(estado => {
+    this.logeado = estado;
+  });
+
+  this.cartSub = this.cartService.getCartObservable().subscribe((carrito) => {
+    this.carrito = carrito;
+    this.totalCarrito = carrito.reduce((sum, item) => sum + (item.precio || 0), 0);
+  });
+}
+
+ngOnDestroy(): void {
+  if (this.authSub) this.authSub.unsubscribe();
+  if (this.cartSub) this.cartSub.unsubscribe();
+}
+
 
   toggleCarrito() {
     if (!this.authService.isAuthenticated()) {
@@ -67,6 +77,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
       this.router.navigate(['/login']);
       return;
     }
-    this.router.navigate(['/perfil']);
+    this.router.navigate(['/profile']);
   }
 }

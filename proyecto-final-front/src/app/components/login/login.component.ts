@@ -31,18 +31,20 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.authService.login(this.email, this.password).subscribe({
       next: (usuario) => {
         localStorage.setItem('usuario', JSON.stringify(usuario));
-  
-        // Redirección condicional
-        if (usuario.email === 'root@root.com') {
-          this.router.navigate(['/admin']);
-        } else {
-          this.router.navigate(['/inicio']);
-        }
+        this.authService.notificarLogin();
+
+        // ✅ Esperar para que AuthGuard lea correctamente el localStorage
+        setTimeout(() => {
+          if (usuario.email === 'root@root.com') {
+            this.router.navigate(['/admin']);
+          } else {
+            this.router.navigate(['/inicio']);
+          }
+        }, 100);
       },
       error: (err) => {
         this.mensaje = err.error?.error || 'Error al iniciar sesión';
       }
     });
   }
-  
 }
