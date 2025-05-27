@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { authGuard } from './guards/auth.guard';
 import { LoginComponent } from './components/login/login.component';
 import { PaginaInicioComponent } from './components/pagina-inicio/pagina-inicio.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -24,7 +25,7 @@ export const routes: Routes = [
   { path: 'card', component: CarCardComponent },
   { path: 'resultados', component: ResultadosComponent },
   { path: 'admin', component: AdminPanelComponent },
-  { path: 'profile', component: UserProfileComponent },
+  { path: 'perfil', component: UserProfileComponent, canActivate: [authGuard] },
   { path: 'new-ad', component: NewAdComponent },
   { path: 'coche-select', component: CocheSelectComponent },
   { path: 'favoritos', component: FavoritosComponent },

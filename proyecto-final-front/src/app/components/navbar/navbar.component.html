@@ -8,15 +8,25 @@
 
     <div class="nav-actions">
 
+      <!-- Botón de Login -->
+      <a>
+        <button class="btn-profile" (click)="gestionarLoginLogout()">
+          <img src="/assets/images/logout.png" alt="Login" class="img-login">
+        </button>
+      </a>
+
       <!-- Botón de Perfil -->
-      <a routerLink="/profile">
-        <button class="btn-profile">Perfil</button>
+      <a routerLink="/perfil">
+        <button class="btn-profile" (click)="irAlPerfil()">
+          <img src="/assets/images/usuario2.png" alt="Perfil" class="img-profile">
+        </button>
       </a>
 
       <!-- Carrito -->
       <div class="cart-container" (mouseenter)="mostrarCarrito = true" (mouseleave)="mostrarCarrito = false">
         <button class="btn-cart">
-          🛒 <span class="badge">{{ carrito.length }}</span>
+          <img src="/assets/images/carrito.png" alt="Perfil" class="img-carrito">
+          <span class="badge">{{ carrito.length }}</span>
         </button>
 
         <!-- Dropdown del carrito -->
