@@ -16,30 +16,33 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
 import { UsuariosComponent } from './admin/usuarios/usuarios.component';
 import { PagoComponent } from './components/pago/pago.component';
+import { AuthGuard } from './guards/auth.guard';
+import { AdminGuard } from './guards/admin.guard';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'inicio', component: PaginaInicioComponent },
-  { path: 'card', component: CarCardComponent },
+  { path: 'inicio', component: PaginaInicioComponent, canActivate: [AuthGuard] },
+  { path: 'card', component: CarCardComponent, canActivate: [AuthGuard] },
   { path: 'resultados', component: ResultadosComponent },
-  { path: 'admin', component: AdminPanelComponent },
-  { path: 'profile', component: UserProfileComponent },
-  { path: 'new-ad', component: NewAdComponent },
-  { path: 'coche-select', component: CocheSelectComponent },
-  { path: 'favoritos', component: FavoritosComponent },
-  { path: 'carrito', component: CarritoComponent },
-  { path: 'admin/usuarios', component: UsuariosComponent },
+  { path: 'profile', component: UserProfileComponent, canActivate: [AuthGuard] },
+  { path: 'new-ad', component: NewAdComponent, canActivate: [AuthGuard] },
+  { path: 'coche-select', component: CocheSelectComponent, canActivate: [AuthGuard] },
+  { path: 'favoritos', component: FavoritosComponent, canActivate: [AuthGuard] },
+  { path: 'carrito', component: CarritoComponent, canActivate: [AuthGuard] },
   {
     path: 'pago',
-    loadComponent: () => import('./components/pago/pago.component').then(m => m.PagoComponent)
+    loadComponent: () => import('./components/pago/pago.component').then(m => m.PagoComponent),
+    canActivate: [AuthGuard]
   },
-  { path: 'admin/usuarios/:id/editar', component: UserProfileComponent },
 
-  // ADMIN
-  { path: 'admin/anuncios', component: AnunciosComponent },
-  { path: 'admin/crear-coche', loadComponent: () => import('./admin/crear-coche/crear-coche.component').then(m => m.CrearCocheComponent) },
-  { path: 'editar-coche', component: EditarCocheComponent },
+  // Admin
+  { path: 'admin', component: AdminPanelComponent, canActivate: [AdminGuard] },
+  { path: 'admin/usuarios', component: UsuariosComponent, canActivate: [AdminGuard] },
+  { path: 'admin/usuarios/:id/editar', component: UserProfileComponent, canActivate: [AdminGuard] },
+  { path: 'admin/anuncios', component: AnunciosComponent, canActivate: [AdminGuard] },
+  { path: 'admin/crear-coche', loadComponent: () => import('./admin/crear-coche/crear-coche.component').then(m => m.CrearCocheComponent), canActivate: [AdminGuard] },
+  { path: 'editar-coche', component: EditarCocheComponent, canActivate: [AdminGuard] },
 
   // Información
   { path: 'politica-privacidad', component: PoliticaPrivacidadComponent },
