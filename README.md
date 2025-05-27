@@ -20,8 +20,6 @@ En **Proyecto Final Front**, proporcionamos a los usuarios una plataforma fácil
 Este proyecto fue desarrollado utilizando las siguientes tecnologías:
 
 - **[Angular](https://angular.io/)**: Framework principal utilizado para construir una aplicación web moderna y escalable.
-- **[RxJS](https://rxjs-dev.firebaseapp.com/)**: Biblioteca para gestionar flujos asíncronos y reactividad de los datos.
-- **[Bootstrap](https://getbootstrap.com/)**: Framework CSS para facilitar el diseño responsivo y componentes de interfaz de usuario.
 - **HTML5 y CSS3**: Tecnologías de base para estructurar y estilizar la aplicación.
 - **[Angular CLI](https://angular.io/cli)**: Herramienta de línea de comandos para facilitar la creación, desarrollo y mantenimiento del proyecto.
   
