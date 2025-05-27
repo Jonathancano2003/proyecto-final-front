@@ -41,7 +41,11 @@ export const routes: Routes = [
   { path: 'admin/usuarios', component: UsuariosComponent, canActivate: [AdminGuard] },
   { path: 'admin/usuarios/:id/editar', component: UserProfileComponent, canActivate: [AdminGuard] },
   { path: 'admin/anuncios', component: AnunciosComponent, canActivate: [AdminGuard] },
-  { path: 'admin/crear-coche', loadComponent: () => import('./admin/crear-coche/crear-coche.component').then(m => m.CrearCocheComponent), canActivate: [AdminGuard] },
+  {
+    path: 'admin/crear-coche',
+    loadComponent: () => import('./admin/crear-coche/crear-coche.component').then(m => m.CrearCocheComponent),
+    canActivate: [AdminGuard]
+  },
   { path: 'editar-coche', component: EditarCocheComponent, canActivate: [AdminGuard] },
 
   // Información

@@ -72,13 +72,13 @@
   }
   
   .guardar {
-    background-color: #007bff;
+    background-color: #e53935;
     color: white;
     border: none;
   }
   
   .guardar:hover {
-    background-color: #0056b3;
+    background-color: #c62828;
   }
   .ver-favoritos {
     background-color: white;
